@@ -14,7 +14,7 @@ namespace Congregation.Common.Entities
 
         public ICollection<District> Districts { get; set; }
 
-        [DisplayName("Departments Number")]
+        [DisplayName("District Number")]
         public int DistrictsNumber => Districts == null ? 0 : Districts.Count;
 
     }

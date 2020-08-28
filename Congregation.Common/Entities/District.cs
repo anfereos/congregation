@@ -16,7 +16,7 @@ namespace Congregation.Common.Entities
 
         public ICollection<Church> Churches { get; set; }
 
-        [DisplayName("Cities Number")]
+        [DisplayName("Churches Number")]
         public int ChurchesNumber => Churches == null ? 0 : Churches.Count;
 
         [NotMapped]
