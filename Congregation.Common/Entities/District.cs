@@ -16,6 +16,7 @@ namespace Congregation.Common.Entities
 
         public ICollection<Church> Churches { get; set; }
 
+        //Propiedad de lectura que me dice cuantas iglesias hay en cada campo 
         [DisplayName("Churches Number")]
         public int ChurchesNumber => Churches == null ? 0 : Churches.Count;
 
