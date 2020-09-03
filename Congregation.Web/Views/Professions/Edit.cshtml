@@ -1,4 +1,4 @@
-﻿@model Congregation.Common.Entities.Country
+﻿@model Congregation.Common.Entities.Profession
 
 @{
     ViewData["Title"] = "Edit";
@@ -6,7 +6,7 @@
 
 <h2>Edit</h2>
 
-<h4>Country</h4>
+<h4>Profession</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -14,7 +14,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
 
-            <partial name="_Country" />
+            <partial name="_Profession" />
 
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
@@ -28,4 +28,3 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-

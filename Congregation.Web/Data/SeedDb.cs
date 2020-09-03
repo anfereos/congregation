@@ -18,6 +18,7 @@ namespace Congregation.Web.Data
         {
             await _context.Database.EnsureCreatedAsync();
             await CheckCountriesAsync();
+            await CheckProfessionAsync();
         }
 
         private async Task CheckCountriesAsync()
@@ -78,6 +79,27 @@ namespace Congregation.Web.Data
                 });
                 await _context.SaveChangesAsync();
             }
+        }
+
+        private async Task CheckProfessionAsync()
+        {
+            if (!_context.Professions.Any())
+            {
+                _context.Professions.Add(new Profession
+                {
+                    Name = "Profession_1"
+                });
+                _context.Professions.Add(new Profession
+                {
+                    Name = "Profession_2"
+                });
+                _context.Professions.Add(new Profession
+                {
+                    Name = "Profession_3"
+                });
+                await _context.SaveChangesAsync();
+            }
+
         }
     }
 

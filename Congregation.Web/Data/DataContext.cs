@@ -15,6 +15,8 @@ namespace Congregation.Web.Data
 
         public DbSet<District> Districts { get; set; }
 
+        public DbSet<Profession> Professions { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -23,12 +25,15 @@ namespace Congregation.Web.Data
             .HasIndex(t => t.Name)
             .IsUnique();
 
-
             modelBuilder.Entity<Country>()
                 .HasIndex(t => t.Name)
                 .IsUnique();
 
             modelBuilder.Entity<District>()
+                .HasIndex(t => t.Name)
+                .IsUnique();
+
+            modelBuilder.Entity<Profession>()
                 .HasIndex(t => t.Name)
                 .IsUnique();
 
