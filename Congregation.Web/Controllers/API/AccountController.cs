@@ -1,6 +1,9 @@
-﻿using Congregation.Web.Data.Entities;
+﻿using Congregation.Common.Request;
+using Congregation.Web.Data.Entities;
 using Congregation.Web.Helpers;
 using Congregation.Web.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -65,6 +68,25 @@ namespace Congregation.Web.Controllers.API
             }
 
             return BadRequest();
+        }
+
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [HttpPost]
+        [Route("GetUserByEmail")]
+        public async Task<IActionResult> GetUserByEmail([FromBody] EmailRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            User user = await _userHelper.GetUserAsync(request.Email);
+            if (user == null)
+            {
+                return NotFound("Error001");
+            }
+
+            return Ok(user);
         }
     }
 
