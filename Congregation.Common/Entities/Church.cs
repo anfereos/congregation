@@ -16,5 +16,9 @@ namespace Congregation.Common.Entities
         [NotMapped]
         public int IdDistrict { get; set; }
 
+        [JsonIgnore]
+        public District District { get; set; }
+
+
     }
 }

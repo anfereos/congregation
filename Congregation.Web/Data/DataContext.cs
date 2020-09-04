@@ -23,17 +23,24 @@ namespace Congregation.Web.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Church>()
-            .HasIndex(t => t.Name)
-            .IsUnique();
+            modelBuilder.Entity<Country>(cou =>
+            {
+                cou.HasIndex("Name").IsUnique();
+                cou.HasMany(c => c.Districts).WithOne(d => d.Country).OnDelete(DeleteBehavior.Cascade);
+            });
 
-            modelBuilder.Entity<Country>()
-                .HasIndex(t => t.Name)
-                .IsUnique();
+            modelBuilder.Entity<District>(dep =>
+            {
+                dep.HasIndex("Name", "CountryId").IsUnique();
+                dep.HasOne(d => d.Country).WithMany(c => c.Districts).OnDelete(DeleteBehavior.Cascade);
+            });
 
-            modelBuilder.Entity<District>()
-                .HasIndex(t => t.Name)
-                .IsUnique();
+            modelBuilder.Entity<Church>(cit =>
+            {
+                cit.HasIndex("Name", "DistrictId").IsUnique();
+                cit.HasOne(c => c.District).WithMany(d => d.Churches).OnDelete(DeleteBehavior.Cascade);
+            });
+
 
             modelBuilder.Entity<Profession>()
                 .HasIndex(t => t.Name)
