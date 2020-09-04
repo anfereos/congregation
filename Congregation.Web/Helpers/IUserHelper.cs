@@ -1,6 +1,8 @@
-﻿using Congregation.Web.Data.Entities;
+﻿using Congregation.Common.Enums;
+using Congregation.Web.Data.Entities;
 using Congregation.Web.Models;
 using Microsoft.AspNetCore.Identity;
+using System;
 using System.Threading.Tasks;
 
 namespace Congregation.Web.Helpers
@@ -23,6 +25,7 @@ namespace Congregation.Web.Helpers
 
         Task<SignInResult> ValidatePasswordAsync(User user, string password);
 
+        Task<User> AddUserAsync(AddUserViewModel model, Guid imageId, UserType userType);
     }
 
 }

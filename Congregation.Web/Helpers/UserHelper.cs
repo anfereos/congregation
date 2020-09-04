@@ -1,8 +1,10 @@
-﻿using Congregation.Web.Data;
+﻿using Congregation.Common.Enums;
+using Congregation.Web.Data;
 using Congregation.Web.Data.Entities;
 using Congregation.Web.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Threading.Tasks;
 
 namespace Congregation.Web.Helpers
@@ -74,6 +76,33 @@ namespace Congregation.Web.Helpers
             return await _signInManager.CheckPasswordSignInAsync(user, password, false);
         }
 
+        public async Task<User> AddUserAsync(AddUserViewModel model, Guid imageId, UserType userType)
+        {
+            User user = new User
+            {
+                Address = model.Address,
+                Document = model.Document,
+                Email = model.Username,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                ImageId = imageId,
+                PhoneNumber = model.PhoneNumber,
+                Church = await _context.Churches.FindAsync(model.ChurchId),
+                Profession = await _context.Professions.FindAsync(model.ProfessionId),//TODO validar q funcione
+                UserName = model.Username,
+                UserType = userType
+            };
+
+            IdentityResult result = await _userManager.CreateAsync(user, model.Password);
+            if (result != IdentityResult.Success)
+            {
+                return null;
+            }
+
+            User newUser = await GetUserAsync(model.Username);
+            await AddUserToRoleAsync(newUser, user.UserType.ToString());
+            return newUser;
+        }
     }
 
 }
