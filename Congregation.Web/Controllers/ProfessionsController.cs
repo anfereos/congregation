@@ -1,5 +1,6 @@
 ﻿using Congregation.Common.Entities;
 using Congregation.Web.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Congregation.Web.Controllers
 {
+    [Authorize(Roles = "Admin")]//Si esta aquí este rol tiene acceso a todos los metodos de este controlador
     public class ProfessionsController : Controller
     {
         private readonly DataContext _context;
