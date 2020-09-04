@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Congregation.Common.Entities
@@ -11,6 +12,7 @@ namespace Congregation.Common.Entities
         [Required]
         public string Name { get; set; }
 
+        [JsonIgnore]
         [NotMapped]
         public int IdDistrict { get; set; }
 
