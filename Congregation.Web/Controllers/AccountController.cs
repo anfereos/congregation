@@ -77,6 +77,7 @@ namespace Congregation.Web.Controllers
         {
             AddUserViewModel model = new AddUserViewModel
             {
+                Professions = _combosHelper.GetComboProfessions(),
                 Countries = _combosHelper.GetComboCountries(),
                 Districts = _combosHelper.GetComboDistricts(0),
                 Churches = _combosHelper.GetComboChurches(0),
@@ -102,6 +103,7 @@ namespace Congregation.Web.Controllers
                 if (user == null)
                 {
                     ModelState.AddModelError(string.Empty, "This email is already used.");
+                    model.Professions = _combosHelper.GetComboProfessions();
                     model.Countries = _combosHelper.GetComboCountries();
                     model.Districts = _combosHelper.GetComboDistricts(model.CountryId);
                     model.Churches = _combosHelper.GetComboChurches(model.DistrictId);
@@ -123,6 +125,7 @@ namespace Congregation.Web.Controllers
                 }
             }
 
+            model.Professions = _combosHelper.GetComboProfessions();
             model.Countries = _combosHelper.GetComboCountries();
             model.Districts = _combosHelper.GetComboDistricts(model.CountryId);
             model.Churches = _combosHelper.GetComboChurches(model.DistrictId);
