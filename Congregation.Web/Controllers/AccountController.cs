@@ -177,12 +177,6 @@ namespace Congregation.Web.Controllers
                 return NotFound();
             }
 
-            //Profession profession = await _context.Professions.FirstOrDefaultAsync(p => p.Id == user.Profession.Id);
-            //if (profession == null)
-            //{
-            //    profession = await _context.Professions.FirstOrDefaultAsync();
-            //}
-
             District district = await _context.Districts.FirstOrDefaultAsync(d => d.Churches.FirstOrDefault(c => c.Id == user.Church.Id) != null);
             if (district == null)
             {
@@ -205,10 +199,11 @@ namespace Congregation.Web.Controllers
                 Churches = _combosHelper.GetComboChurches(district.Id),
                 ChurchId = user.Church.Id,
                 Countries = _combosHelper.GetComboCountries(),
-                Professions = _combosHelper.GetComboProfessions(),
                 CountryId = country.Id,
-                DistrictId = district.Id,
                 Districts = _combosHelper.GetComboDistricts(country.Id),
+                DistrictId = district.Id,
+                Professions = _combosHelper.GetComboProfessions(),
+                ProfessionId = user.Profession.Id,
                 Id = user.Id,
                 Document = user.Document
             };

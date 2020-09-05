@@ -50,6 +50,7 @@ namespace Congregation.Web.Helpers
         {
             return await _context.Users
                 .Include(u => u.Church)
+                .Include(p => p.Profession)
                 .FirstOrDefaultAsync(u => u.Email == email);
         }
 
@@ -118,6 +119,7 @@ namespace Congregation.Web.Helpers
         {
             return await _context.Users
                 .Include(u => u.Church)
+                .Include(p => p.Profession)
                 .FirstOrDefaultAsync(u => u.Id == userId.ToString());
         }
 

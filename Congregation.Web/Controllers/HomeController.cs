@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Congregation.Web.Models;
 using Microsoft.AspNetCore.Mvc;
-using Congregation.Web.Models;
+using System.Diagnostics;
 
 namespace Congregation.Web.Controllers
 {
@@ -39,7 +35,7 @@ namespace Congregation.Web.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        
+
         [Route("error/404")]
         public IActionResult Error404()
         {
