@@ -36,6 +36,15 @@ namespace Congregation.Web.Controllers
 
         }
 
+
+        public async Task<IActionResult> Index()
+        {
+            return View(await _context.Users
+                .Include(c => c.Church)
+                .Include(p => p.Profession).ToListAsync());
+        }
+
+
         public IActionResult Login()
         {
             if (User.Identity.IsAuthenticated)
