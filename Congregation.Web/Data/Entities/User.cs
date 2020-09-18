@@ -2,6 +2,8 @@
 using Congregation.Common.Enums;
 using Microsoft.AspNetCore.Identity;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Congregation.Web.Data.Entities
@@ -45,6 +47,9 @@ namespace Congregation.Web.Data.Entities
 
         [Display(Name = "User")]
         public string FullNameWithDocument => $"{FirstName} {LastName} - {Document}";
+
+        public ICollection<Assistance> Assistances { get; set; }
+
     }
 
 }
