@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Congregation.Web.Data.Entities.User>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "ListMemberforChruchies";
 }
 
 
@@ -22,17 +22,17 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Church.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Profession.Name)
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Church.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Profession.Name)
+                </td>
+            </tr>
         }
     </tbody>
 </table>

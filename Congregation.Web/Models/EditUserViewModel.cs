@@ -64,7 +64,6 @@ namespace Congregation.Web.Models
         public IEnumerable<SelectListItem> Churches { get; set; }
 
 
-        //TODO VALIDAR SI SI FUNCIONA
         [Required]
         [Display(Name = "Profession")]
         [Range(1, int.MaxValue, ErrorMessage = "You must select a Profesion.")]

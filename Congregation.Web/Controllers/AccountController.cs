@@ -23,7 +23,7 @@ namespace Congregation.Web.Controllers
         private readonly IMailHelper _mailHelper;
 
         public AccountController(
-            DataContext context,IUserHelper userHelper,
+            DataContext context, IUserHelper userHelper,
             ICombosHelper combosHelper,
             IBlobHelper blobHelper,
             IMailHelper mailHelper)
@@ -43,6 +43,19 @@ namespace Congregation.Web.Controllers
                 .Include(c => c.Church)
                 .Include(p => p.Profession).ToListAsync());
         }
+
+
+        public async Task<IActionResult> ListMemberforChruchies()
+        {
+            User teacher = await _userHelper.GetUserAsync(User.Identity.Name);
+            
+            var user = await _context.Users
+                .Include(c => c.Church).Where(c => c.Church.Id == teacher.Church.Id)
+                .Include(p => p.Profession).ToListAsync();
+
+            return View(user);
+        }
+
 
 
         public IActionResult Login()
@@ -180,7 +193,7 @@ namespace Congregation.Web.Controllers
 
         public async Task<IActionResult> ChangeUser()
         {
-            User user = await _userHelper.GetUserAsync(User.Identity.Name);
+            User user = await _userHelper.GetUserAsync(User.Identity.Name);///todo: validar si de aqui tomo el dato
             if (user == null)
             {
                 return NotFound();
@@ -253,8 +266,6 @@ namespace Congregation.Web.Controllers
             model.Professions = _combosHelper.GetComboProfessions();
             model.Districts = _combosHelper.GetComboDistricts(model.ChurchId);
             return View(model);
-
-            //TODO: no me esta cargando la profesion cuando quiero editar el usuario.
 
         }
 
@@ -372,8 +383,6 @@ namespace Congregation.Web.Controllers
             return View(model);
         }
 
-
-        //TODO: Validar si funciona el registro de profes
 
         public IActionResult RegisterTeacher()
         {

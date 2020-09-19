@@ -89,7 +89,7 @@ namespace Congregation.Web.Helpers
                 ImageId = imageId,
                 PhoneNumber = model.PhoneNumber,
                 Church = await _context.Churches.FindAsync(model.ChurchId),
-                Profession = await _context.Professions.FindAsync(model.ProfessionId),//TODO validar q funcione
+                Profession = await _context.Professions.FindAsync(model.ProfessionId),
                 UserName = model.Username,
                 UserType = userType
             };
