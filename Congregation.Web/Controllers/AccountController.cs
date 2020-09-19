@@ -371,5 +371,72 @@ namespace Congregation.Web.Controllers
             ViewBag.Message = "User not found.";
             return View(model);
         }
+
+
+        //TODO: Validar si funciona el registro de profes
+
+        public IActionResult RegisterTeacher()
+        {
+            AddUserViewModel model = new AddUserViewModel
+            {
+                Professions = _combosHelper.GetComboProfessions(),
+                Countries = _combosHelper.GetComboCountries(),
+                Districts = _combosHelper.GetComboDistricts(0),
+                Churches = _combosHelper.GetComboChurches(0),
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RegisterTeacher(AddUserViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Guid imageId = Guid.Empty;
+
+                if (model.ImageFile != null)
+                {
+                    imageId = await _blobHelper.UploadBlobAsync(model.ImageFile, "users");
+                }
+
+                User user = await _userHelper.AddUserAsync(model, imageId, UserType.Teacher);
+                if (user == null)
+                {
+                    ModelState.AddModelError(string.Empty, "This email is already used.");
+                    model.Professions = _combosHelper.GetComboProfessions();
+                    model.Countries = _combosHelper.GetComboCountries();
+                    model.Districts = _combosHelper.GetComboDistricts(model.CountryId);
+                    model.Churches = _combosHelper.GetComboChurches(model.DistrictId);
+                    return View(model);
+                }
+
+                string myToken = await _userHelper.GenerateEmailConfirmationTokenAsync(user);
+                string tokenLink = Url.Action("ConfirmEmail", "Account", new
+                {
+                    userid = user.Id,
+                    token = myToken
+                }, protocol: HttpContext.Request.Scheme);
+
+                Response response = _mailHelper.SendMail(model.Username, "Email confirmation", $"<h1>Email Confirmation</h1>" +
+                    $"To allow the user, " +
+                    $"plase click in this link:<p><a href = \"{tokenLink}\">Confirm Email</a></p>");
+                if (response.IsSuccess)
+                {
+                    ViewBag.Message = "The instructions to allow your user has been sent to email.";
+                    return View(model);
+                }
+
+                ModelState.AddModelError(string.Empty, response.Message);
+
+            }
+
+            model.Professions = _combosHelper.GetComboProfessions();
+            model.Countries = _combosHelper.GetComboCountries();
+            model.Districts = _combosHelper.GetComboDistricts(model.CountryId);
+            model.Churches = _combosHelper.GetComboChurches(model.DistrictId);
+            return View(model);
+        }
     }
 }

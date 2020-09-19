@@ -32,6 +32,7 @@ namespace Congregation.Web.Data
         {
             await _userHelper.CheckRoleAsync(UserType.Admin.ToString());
             await _userHelper.CheckRoleAsync(UserType.User.ToString());
+            await _userHelper.CheckRoleAsync(UserType.Teacher.ToString());
         }
 
         private async Task<User> CheckUserAsync(

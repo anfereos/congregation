@@ -1,5 +1,5 @@
 ﻿using Congregation.Common.Helpers;
-using OnSale.Prism.Resources;
+using Congregation.Prism.Resources;
 using System.Globalization;
 using Xamarin.Forms;
 
