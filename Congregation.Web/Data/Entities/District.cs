@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Congregation.Common.Entities
+namespace Congregation.Web.Data.Entities
 {
     public class District
     {

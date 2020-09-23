@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Congregation.Common.Entities
+namespace Congregation.Web.Data.Entities
 {
     public class Church
     {
@@ -18,7 +18,6 @@ namespace Congregation.Common.Entities
 
         [JsonIgnore]
         public District District { get; set; }
-
 
     }
 }

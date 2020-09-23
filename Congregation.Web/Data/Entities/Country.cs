@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace Congregation.Common.Entities
+namespace Congregation.Web.Data.Entities
 {
     public class Country
     {

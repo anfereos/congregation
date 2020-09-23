@@ -1,5 +1,4 @@
-﻿using Congregation.Common.Entities;
-using Congregation.Common.Enums;
+﻿using Congregation.Common.Enums;
 using Congregation.Common.Responses;
 using Congregation.Web.Data;
 using Congregation.Web.Data.Entities;
@@ -52,6 +51,17 @@ namespace Congregation.Web.Controllers
             var user = await _context.Users
                 .Include(c => c.Church).Where(c => c.Church.Id == teacher.Church.Id)
                 .Include(p => p.Profession).ToListAsync();
+
+            return View(user);
+        }
+
+
+        public async Task<IActionResult> ListTeacher()
+        {
+            var user = await _context.Users
+                .Where(u => u.UserType == Common.Enums.UserType.Teacher)
+                .Include(p => p.Profession)
+                .Include(c => c.Church).ToListAsync();
 
             return View(user);
         }

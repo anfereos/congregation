@@ -1,5 +1,4 @@
-﻿using Congregation.Common.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Congregation.Web.Data.Entities
