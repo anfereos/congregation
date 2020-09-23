@@ -58,12 +58,10 @@ namespace Congregation.Web.Controllers
 
         public async Task<IActionResult> ListTeacher()
         {
-            var user = await _context.Users
+            return View(await _context.Users
                 .Where(u => u.UserType == Common.Enums.UserType.Teacher)
                 .Include(p => p.Profession)
-                .Include(c => c.Church).ToListAsync();
-
-            return View(user);
+                .Include(c => c.Church).ToListAsync());
         }
 
 
