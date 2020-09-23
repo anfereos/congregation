@@ -49,6 +49,7 @@ namespace Congregation.Web.Controllers
             User teacher = await _userHelper.GetUserAsync(User.Identity.Name);
             
             var user = await _context.Users
+                .Where(u => u.UserType == Common.Enums.UserType.Member)
                 .Include(c => c.Church).Where(c => c.Church.Id == teacher.Church.Id)
                 .Include(p => p.Profession).ToListAsync();
 
@@ -131,10 +132,10 @@ namespace Congregation.Web.Controllers
 
                 if (model.ImageFile != null)
                 {
-                    imageId = await _blobHelper.UploadBlobAsync(model.ImageFile, "users");
+                    imageId = await _blobHelper.UploadBlobAsync(model.ImageFile, "member");
                 }
 
-                User user = await _userHelper.AddUserAsync(model, imageId, UserType.User);
+                User user = await _userHelper.AddUserAsync(model, imageId, UserType.Member);
                 if (user == null)
                 {
                     ModelState.AddModelError(string.Empty, "This email is already used.");
