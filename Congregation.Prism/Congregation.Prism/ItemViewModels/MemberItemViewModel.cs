@@ -15,15 +15,15 @@ namespace Congregation.Prism.ItemViewModels
             _navigationService = navigationService;
         }
 
-        public DelegateCommand SelectMemberCommand => _selectMemberCommand ?? (_selectMemberCommand = new DelegateCommand(SelectMemberAsync));
+        //public DelegateCommand SelectMemberCommand => _selectMemberCommand ?? (_selectMemberCommand = new DelegateCommand(SelectMemberAsync));
 
-        private async void SelectMemberAsync()
-        {
-            NavigationParameters parameters = new NavigationParameters
-            {
-                { "member", this }
-            };
-            await _navigationService.NavigateAsync(nameof(MemberDetailPage), parameters);
-        }
+        //private async void SelectMemberAsync()
+        //{
+        //    NavigationParameters parameters = new NavigationParameters
+        //    {
+        //        { "member", this }
+        //    };
+        //    await _navigationService.NavigateAsync(nameof(MemberDetailPage), parameters);
+        //}
     }
 }

@@ -6,6 +6,7 @@ using Xamarin.Essentials.Interfaces;
 using Xamarin.Essentials.Implementation;
 using Xamarin.Forms;
 using Congregation.Common.Services;
+using Syncfusion.Licensing;
 
 namespace Congregation.Prism
 {
@@ -18,6 +19,8 @@ namespace Congregation.Prism
 
         protected override async void OnInitialized()
         {
+            SyncfusionLicenseProvider.RegisterLicense("MzIyOTcxQDMxMzgyZTMyMmUzMGlCVllyMksrVzBCZDhlTHozaXhEZzJHR2ZFVURsby94WVVNeU5uUk15eDg9");
+
             InitializeComponent();
 
             //await NavigationService.NavigateAsync("NavigationPage/MainPage");
@@ -31,7 +34,6 @@ namespace Congregation.Prism
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<MembersPage, MembersPageViewModel>();
-            containerRegistry.RegisterForNavigation<MemberDetailPage, MemberDetailPageViewModel>();
         }
     }
 }
