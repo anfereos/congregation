@@ -1,5 +1,4 @@
-﻿using Congregation.Common.Entities;
-using Congregation.Common.Enums;
+﻿using Congregation.Common.Enums;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;

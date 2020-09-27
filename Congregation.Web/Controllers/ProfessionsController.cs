@@ -1,4 +1,4 @@
-﻿using Congregation.Common.Entities;
+﻿using Congregation.Web.Data.Entities;
 using Congregation.Web.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

@@ -1,7 +1,6 @@
 ﻿using Congregation.Web.Data.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Congregation.Common.Entities;
 
 namespace Congregation.Web.Data
 {

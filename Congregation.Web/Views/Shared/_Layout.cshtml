@@ -39,12 +39,12 @@
                         <li><a asp-area="" asp-controller="Professions" asp-action="Index">Professions</a></li>
                         <li><a asp-area="" asp-controller="Account" asp-action="Index">ListMembers</a></li>
                         <li><a asp-area="" asp-controller="Account" asp-action="ListTeacher">Teacher</a></li>
-                        <li><a asp-area="" asp-controller="Account" asp-action="ListMemberforChruchies">MemberChruchies</a></li>
+                        <li><a asp-area="" asp-controller="Account" asp-action="ListMemberforChurchies">MemberChurchies</a></li>
                     }
 
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Teacher"))
                     {
-                        <li><a asp-area="" asp-controller="Account" asp-action="ListMemberforChruchies">Members</a></li>
+                        <li><a asp-area="" asp-controller="Account" asp-action="ListMemberforChurchies">Members</a></li>
                     }
 
                 </ul>

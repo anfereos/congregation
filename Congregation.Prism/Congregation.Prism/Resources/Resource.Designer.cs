@@ -70,15 +70,6 @@ namespace Congregation.Prism.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add to cart.
-        /// </summary>
-        public static string AddToCart {
-            get {
-                return ResourceManager.GetString("AddToCart", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Check the internet connection..
         /// </summary>
         public static string ConnectionError {
@@ -106,15 +97,6 @@ namespace Congregation.Prism.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is Starred.
-        /// </summary>
-        public static string IsStarred {
-            get {
-                return ResourceManager.GetString("IsStarred", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Loading....
         /// </summary>
         public static string Loading {
@@ -124,20 +106,29 @@ namespace Congregation.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Member.
+        /// </summary>
+        public static string Member {
+            get {
+                return ResourceManager.GetString("Member", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Members.
+        /// </summary>
+        public static string Members {
+            get {
+                return ResourceManager.GetString("Members", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
         public static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Price.
-        /// </summary>
-        public static string Price {
-            get {
-                return ResourceManager.GetString("Price", resourceCulture);
             }
         }
     }

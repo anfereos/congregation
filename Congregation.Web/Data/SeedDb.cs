@@ -1,5 +1,4 @@
-﻿using Congregation.Common.Entities;
-using Congregation.Common.Enums;
+﻿using Congregation.Common.Enums;
 using Congregation.Web.Data.Entities;
 using Congregation.Web.Helpers;
 using System.Collections.Generic;

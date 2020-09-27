@@ -35,7 +35,6 @@ namespace Congregation.Web.Controllers
 
         }
 
-
         public async Task<IActionResult> Index()
         {
             return View(await _context.Users
@@ -44,13 +43,13 @@ namespace Congregation.Web.Controllers
         }
 
 
-        public async Task<IActionResult> ListMemberforChruchies()
+        public async Task<IActionResult> ListMemberforChurchies()
         {
-            User teacher = await _userHelper.GetUserAsync(User.Identity.Name);
+            User teacherIdChurch = await _userHelper.GetUserAsync(User.Identity.Name);
             
             var user = await _context.Users
                 .Where(u => u.UserType == Common.Enums.UserType.Member)
-                .Include(c => c.Church).Where(c => c.Church.Id == teacher.Church.Id)
+                .Include(c => c.Church).Where(c => c.Church.Id == teacherIdChurch.Church.Id)
                 .Include(p => p.Profession).ToListAsync();
 
             return View(user);
@@ -132,7 +131,7 @@ namespace Congregation.Web.Controllers
 
                 if (model.ImageFile != null)
                 {
-                    imageId = await _blobHelper.UploadBlobAsync(model.ImageFile, "member");
+                    imageId = await _blobHelper.UploadBlobAsync(model.ImageFile, "users");
                 }
 
                 User user = await _userHelper.AddUserAsync(model, imageId, UserType.Member);
@@ -202,7 +201,7 @@ namespace Congregation.Web.Controllers
 
         public async Task<IActionResult> ChangeUser()
         {
-            User user = await _userHelper.GetUserAsync(User.Identity.Name);///todo: validar si de aqui tomo el dato
+            User user = await _userHelper.GetUserAsync(User.Identity.Name);
             if (user == null)
             {
                 return NotFound();

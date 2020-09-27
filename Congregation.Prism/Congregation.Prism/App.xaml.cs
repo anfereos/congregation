@@ -20,7 +20,8 @@ namespace Congregation.Prism
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            //await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync($"NavigationPage/{nameof(MembersPage)}");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -29,6 +30,8 @@ namespace Congregation.Prism
             containerRegistry.Register<IApiService, ApiService>();
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<MembersPage, MembersPageViewModel>();
+            containerRegistry.RegisterForNavigation<MemberDetailPage, MemberDetailPageViewModel>();
         }
     }
 }

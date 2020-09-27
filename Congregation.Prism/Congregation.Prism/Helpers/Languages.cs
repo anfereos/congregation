@@ -22,6 +22,7 @@ namespace Congregation.Prism.Helpers
         public static string ConnectionError => Resource.ConnectionError;
 
         public static string Error => Resource.Error;
+        public static string Members => Resource.Members;
     }
 
 }
