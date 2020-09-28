@@ -23,6 +23,8 @@ namespace Congregation.Prism.Helpers
 
         public static string Error => Resource.Error;
         public static string Members => Resource.Members;
+        public static string SearchMember => Resource.SearchMember;
+        public static string Loagind => Resource.Loading;
     }
 
 }

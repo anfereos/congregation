@@ -131,5 +131,14 @@ namespace Congregation.Prism.Resources {
                 return ResourceManager.GetString("Name", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SearchMember.
+        /// </summary>
+        public static string SearchMember {
+            get {
+                return ResourceManager.GetString("SearchMember", resourceCulture);
+            }
+        }
     }
 }

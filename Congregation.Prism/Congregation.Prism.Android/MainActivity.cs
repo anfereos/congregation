@@ -8,7 +8,7 @@ using Syncfusion.SfRotator.XForms.Droid;
 
 namespace Congregation.Prism.Droid
 {
-    [Activity(Theme = "@style/MainTheme",
+    [Activity(Label = "Congregation", MainLauncher = false, Theme = "@style/MainTheme",
               ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {

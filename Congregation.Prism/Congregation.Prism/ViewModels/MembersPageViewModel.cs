@@ -60,7 +60,7 @@ namespace Congregation.Prism.ViewModels
         {
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
-                await App.Current.MainPage.DisplayAlert("Error", "Check the internet connection.", "Accept");
+                await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.ConnectionError, Languages.Accept);
                 return;
             }
 
@@ -71,10 +71,7 @@ namespace Congregation.Prism.ViewModels
 
             if (!response.IsSuccess)
             {
-                await App.Current.MainPage.DisplayAlert(
-                    "Error",
-                    response.Message,
-                    "Accept");
+                await App.Current.MainPage.DisplayAlert(Languages.Error, response.Message,Languages.Accept);
                 return;
             }
 

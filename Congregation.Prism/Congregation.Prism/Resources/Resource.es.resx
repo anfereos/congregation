@@ -141,4 +141,7 @@
   <data name="Members" xml:space="preserve">
     <value>Miembros</value>
   </data>
+  <data name="SearchMember" xml:space="preserve">
+    <value>Buscar Miembro</value>
+  </data>
 </root>
