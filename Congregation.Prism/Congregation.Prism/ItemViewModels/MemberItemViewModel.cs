@@ -1,5 +1,4 @@
 ﻿using Congregation.Common.Responses;
-using Congregation.Prism.Views;
 using Prism.Commands;
 using Prism.Navigation;
 

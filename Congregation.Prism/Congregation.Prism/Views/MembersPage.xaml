@@ -8,7 +8,9 @@
              ios:Page.UseSafeArea="true"
              xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
              xmlns:i18n="clr-namespace:Congregation.Prism.Helpers"
+             xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              x:Class="Congregation.Prism.Views.MembersPage"
+             BackgroundColor="{StaticResource ColorBackground}"
              Title="{Binding Title}">
 
     <AbsoluteLayout>
@@ -33,14 +35,20 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            <ffimageloading:CachedImage Grid.Column="0"
-                                                    Aspect="AspectFit"
-                                                    Source="{Binding ImageFullPath}" 
-                                                    CacheDuration= "50"
-                                                    Margin="5"
-                                                    RetryCount= "3"
-                                                    RetryDelay= "600"
-                                                    WidthRequest="100"/>
+
+                            <ffimageloading:CachedImage Aspect="AspectFill"
+                                    Source="{Binding ImageFullPath}" 
+                                    CacheDuration= "50"
+                                    HeightRequest="100"
+                                    Margin="5"
+                                    RetryCount= "3"
+                                    RetryDelay= "600"
+                                    WidthRequest="100">
+                                <ffimageloading:CachedImage.Transformations>
+                                    <fftransformations:CircleTransformation />
+                                </ffimageloading:CachedImage.Transformations>
+                            </ffimageloading:CachedImage>
+
                             <StackLayout Grid.Column="1" VerticalOptions="Center">
                                 <Label Text="{Binding FullName}" 
                                    FontAttributes="Bold"

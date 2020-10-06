@@ -147,4 +147,40 @@
   <data name="SearchMember" xml:space="preserve">
     <value>Cerca Membri</value>
   </data>
+  <data name="Login" xml:space="preserve">
+    <value>accesso</value>
+  </data>
+  <data name="ModifyUser" xml:space="preserve">
+    <value>Modifica utente</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EmailPlaceHolder" xml:space="preserve">
+    <value>Inserisci il tuo indirizzo email...</value>
+  </data>
+  <data name="EmailError" xml:space="preserve">
+    <value>Devi inserire un'e-mail valida.</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Parola d'ordine</value>
+  </data>
+  <data name="PasswordPlaceHolder" xml:space="preserve">
+    <value>Inserisci la tua password...</value>
+  </data>
+  <data name="PasswordError" xml:space="preserve">
+    <value>Devi inserire la tua password.</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>Hai dimenticato la password?</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Registra nuovo utente</value>
+  </data>
+  <data name="LoginError" xml:space="preserve">
+    <value>Email o password errati.</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>cancella la sottoscrizione</value>
+  </data>
 </root>

@@ -19,12 +19,13 @@ namespace Congregation.Prism
 
         protected override async void OnInitialized()
         {
-            SyncfusionLicenseProvider.RegisterLicense("MzIyOTcxQDMxMzgyZTMyMmUzMGlCVllyMksrVzBCZDhlTHozaXhEZzJHR2ZFVURsby94WVVNeU5uUk15eDg9");
+            SyncfusionLicenseProvider.RegisterLicense("MzI4NzMyQDMxMzgyZTMzMmUzMEwwTEN2cTkvTndzb3lxNjZ0SmFxbGJkTTAyK3lWaWoyYUNJQzlzdC94eU09");
 
             InitializeComponent();
 
             //await NavigationService.NavigateAsync("NavigationPage/MainPage");
-            await NavigationService.NavigateAsync($"NavigationPage/{nameof(MembersPage)}");
+            //await NavigationService.NavigateAsync($"NavigationPage/{nameof(MembersPage)}");
+            await NavigationService.NavigateAsync($"{nameof(CongregationMasterDetailPage)}/NavigationPage/{nameof(MembersPage)}");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -33,7 +34,10 @@ namespace Congregation.Prism
             containerRegistry.Register<IApiService, ApiService>();
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<CongregationMasterDetailPage, CongregationMasterDetailPageViewModel>();
             containerRegistry.RegisterForNavigation<MembersPage, MembersPageViewModel>();
+            containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
+            containerRegistry.RegisterForNavigation<ModifyUserPage, ModifyUserPageViewModel>();
         }
     }
 }

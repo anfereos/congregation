@@ -92,7 +92,5 @@ namespace Congregation.Prism.ViewModels
                     .Where(m => m.FullName.ToLower().Contains(Search.ToLower())));
             }
         }
-
-
     }
 }
