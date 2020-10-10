@@ -1,5 +1,7 @@
-﻿using Congregation.Common.Request;
+﻿using Congregation.Common.Models;
+using Congregation.Common.Request;
 using Congregation.Common.Responses;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace Congregation.Common.Services
@@ -9,6 +11,11 @@ namespace Congregation.Common.Services
         Task<Response> GetListAsync<T>(string urlBase, string servicePrefix, string controller);
 
         Task<Response> GetTokenAsync(string urlBase, string servicePrefix, string controller, TokenRequest request);
+
+        Task<RandomUsers> GetRandomUser(string urlBase, string servicePrefix);
+
+        Task<Stream> GetPictureAsync(string urlBase, string servicePrefix);
+
     }
 
 }

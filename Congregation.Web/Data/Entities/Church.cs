@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -18,6 +20,9 @@ namespace Congregation.Web.Data.Entities
 
         [JsonIgnore]
         public District District { get; set; }
+
+        [JsonIgnore]//TODO:esto mio para tomar el id en MeetingController
+        public ICollection<User> Users { get; set; }
 
     }
 }

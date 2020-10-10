@@ -1,4 +1,5 @@
-﻿using Congregation.Web.Data;
+﻿using Congregation.Common.Services;
+using Congregation.Web.Data;
 using Congregation.Web.Data.Entities;
 using Congregation.Web.Helpers;
 using Microsoft.AspNetCore.Builder;
@@ -75,6 +76,7 @@ namespace Congregation.Web
             services.AddScoped<ICombosHelper, CombosHelper>();
             services.AddScoped<IUserHelper, UserHelper>();
             services.AddScoped<IMailHelper, MailHelper>();
+            services.AddScoped<IApiService, ApiService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

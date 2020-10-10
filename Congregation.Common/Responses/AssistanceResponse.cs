@@ -1,15 +1,15 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Congregation.Web.Data.Entities
+namespace Congregation.Common.Responses
 {
-    public class Assistance
+    public class AssistanceResponse
     {
         public int Id { get; set; }
 
-        public User User { get; set; }
+        public UserResponse User { get; set; }
 
-        public Meeting Meeting { get; set; }
+        public MeetingResponse Meeting { get; set; }
 
         public bool IsPresent { get; set; }
 

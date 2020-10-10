@@ -1,5 +1,7 @@
 ﻿using Congregation.Common.Enums;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Congregation.Common.Responses
 {
@@ -30,5 +32,9 @@ namespace Congregation.Common.Responses
         public string FullName => $"{FirstName} {LastName}";
 
         public string FullNameWithDocument => $"{FirstName} {LastName} - {Document}";
+
+        public ICollection<MeetingResponse> Mettings { get; set; }
+
+        public ICollection<AssistanceResponse> Assitances { get; set; }
     }
 }

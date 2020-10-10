@@ -5,6 +5,7 @@
         Admin,
         Teacher,
         Member,
+        User,
     }
 
 }

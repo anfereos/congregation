@@ -14,11 +14,11 @@ namespace Congregation.Prism.ViewModels
     {
         private readonly INavigationService _navigationService;
         private readonly IApiService _apiService;
-        private ObservableCollection<MemberResponse> _members;
+        private ObservableCollection<UserResponse> _members;
         private bool _isRunning;
 
         private string _search;
-        private List<MemberResponse> _myMembers;
+        private List<UserResponse> _myMembers;
         private DelegateCommand _searchCommand;
 
 
@@ -50,7 +50,7 @@ namespace Congregation.Prism.ViewModels
         }
 
 
-        public ObservableCollection<MemberResponse> Members
+        public ObservableCollection<UserResponse> Members
         {
             get => _members;
             set => SetProperty(ref _members, value);
@@ -66,7 +66,7 @@ namespace Congregation.Prism.ViewModels
 
             IsRunning = true;
             string url = App.Current.Resources["UrlAPI"].ToString();
-            Response response = await _apiService.GetListAsync<MemberResponse>(url, "/api", "/Members");
+            Response response = await _apiService.GetListAsync<UserResponse>(url, "/api", "/Members");
             IsRunning = false;
 
             if (!response.IsSuccess)
@@ -75,7 +75,7 @@ namespace Congregation.Prism.ViewModels
                 return;
             }
 
-            _myMembers = (List<MemberResponse>)response.Result;
+            _myMembers = (List<UserResponse>)response.Result;
             ShowMembers();
 
         }
@@ -84,12 +84,12 @@ namespace Congregation.Prism.ViewModels
         {
             if (string.IsNullOrEmpty(Search))
             {
-                Members = new ObservableCollection<MemberResponse>(_myMembers);
+                Members = new ObservableCollection<UserResponse>(_myMembers);
             }
             else
             {
-                Members = new ObservableCollection<MemberResponse>(_myMembers
-                    .Where(m => m.FullName.ToLower().Contains(Search.ToLower())));
+                Members = new ObservableCollection<UserResponse>(_myMembers
+                    .Where(m => m.FullName.ToLower().Contains(Search.ToLower())));//TODO: Me falta hacer el filtro de church.id
             }
         }
     }
