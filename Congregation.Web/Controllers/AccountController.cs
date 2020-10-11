@@ -219,6 +219,11 @@ namespace Congregation.Web.Controllers
                 country = await _context.Countries.FirstOrDefaultAsync();
             }
 
+            if (user.Profession == null)
+            {
+                user.Profession = await _context.Professions.FirstOrDefaultAsync();
+            }
+
             EditUserViewModel model = new EditUserViewModel
             {
                 Address = user.Address,

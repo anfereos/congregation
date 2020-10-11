@@ -7,9 +7,13 @@ namespace Congregation.Common.Request
 {
     public class MeetingRequest
     {
-        public MeetingResponse Meeting { get; set; }
-        public ChurchResponse Church { get; set; }
+        [Required]
+        public int MeetingId { get; set; }
 
+        [Required]
+        public int ChurchId { get; set; }
+
+        [Required]
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd hh:mm}")]
         public DateTime Date { get; set; }
 

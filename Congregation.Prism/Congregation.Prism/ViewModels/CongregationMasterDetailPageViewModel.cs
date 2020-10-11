@@ -63,6 +63,12 @@ namespace Congregation.Prism.ViewModels
                 Icon = "ic_exit_to_app",
                 PageName = $"{nameof(LoginPage)}",
                 Title = Settings.IsLogin ? Languages.Logout : Languages.Login
+            },
+            new Menu
+            {
+                Icon = "ic_person",
+                PageName = $"{nameof(RegisterPage)}",
+                Title = Languages.Register
             }
         };
 

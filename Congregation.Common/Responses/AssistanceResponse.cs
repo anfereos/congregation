@@ -1,7 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-
-namespace Congregation.Common.Responses
+﻿namespace Congregation.Common.Responses
 {
     public class AssistanceResponse
     {
@@ -12,9 +9,5 @@ namespace Congregation.Common.Responses
         public MeetingResponse Meeting { get; set; }
 
         public bool IsPresent { get; set; }
-
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd hh:mm}")]
-        public DateTime Date { get; set; }
-
     }
 }

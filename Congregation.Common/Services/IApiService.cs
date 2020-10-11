@@ -16,6 +16,8 @@ namespace Congregation.Common.Services
 
         Task<Stream> GetPictureAsync(string urlBase, string servicePrefix);
 
+        Task<Response> RegisterUserAsync(string urlBase, string servicePrefix, string controller, UserRequest userRequest);
+
     }
 
 }

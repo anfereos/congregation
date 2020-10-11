@@ -54,6 +54,18 @@ namespace Congregation.Web.Helpers
                 .FirstOrDefaultAsync(u => u.Email == email);
         }
 
+
+        //TODO: para traerlo por iglesia
+        public async Task<User> GetUserAsync(int churchid)
+        {
+            return await _context.Users
+                .Include(u => u.Church)
+                .Include(p => p.Profession)
+                .FirstOrDefaultAsync(u => u.Church.Id == churchid);
+        }
+
+
+
         public async Task<bool> IsUserInRoleAsync(User user, string roleName)
         {
             return await _userManager.IsInRoleAsync(user, roleName);

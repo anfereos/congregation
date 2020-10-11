@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Asn1.Ocsp;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -16,19 +17,18 @@ namespace Congregation.Web.Controllers.API
     [ApiController]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]//requiere token
     [Route("api/[controller]")]
-    public class MeetingController : ControllerBase
+    public class MeetingsController : ControllerBase
     {
         private readonly DataContext _context;
         private readonly IUserHelper _userHelper;
 
-        public MeetingController(DataContext context, IUserHelper userHelper)
+        public MeetingsController(DataContext context, IUserHelper userHelper)
         {
             _context = context;
             _userHelper = userHelper;
         }
 
         [HttpPost]
-        [Route("PostMeeting")]
         public async Task<IActionResult> PostMeeting([FromBody] MeetingRequest request)
         {
             if (!ModelState.IsValid)
@@ -54,7 +54,7 @@ namespace Congregation.Web.Controllers.API
 
             Meeting meeting = await _context.Meetings
                 .Include(m => m.Church)
-                .FirstOrDefaultAsync(m => m.Id == request.Meeting.Id);
+                .FirstOrDefaultAsync(m => m.Id == request.MeetingId);
 
             meeting = new Meeting
             {
@@ -68,12 +68,13 @@ namespace Congregation.Web.Controllers.API
             return Ok(meeting);
         }
 
-
-        //Meeting meeting = await _context.Meetings
-        //    .Include(m => m.Church)
-        //    .Include(m => m.Assistances)
-        //    .FirstOrDefaultAsync(m => m.Id == request.Meeting.Id);    //Para buscar la Meeting q trae el request para usarlo en el metodo put
-
+        [HttpGet]
+        public IActionResult GetMeetings()
+        {
+            return Ok(_context.Meetings
+                .Include(c => c.Church)
+                .Include(a => a.Assistances));
+        }
 
 
     }

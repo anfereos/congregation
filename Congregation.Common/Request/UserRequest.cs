@@ -30,6 +30,10 @@ namespace Congregation.Common.Request
         public int ChurchId { get; set; }
 
         public byte[] ImageArray { get; set; }
+
+        public string PasswordConfirm { get; set; }
+
+        public int ProfessionId { get; set; }
     }
 
 }

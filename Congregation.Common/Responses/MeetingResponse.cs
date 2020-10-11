@@ -7,7 +7,7 @@ namespace Congregation.Common.Responses
     {
         public int Id { get; set; }
 
-        public ChurchResponse Church { get; set; }
+        public int ChurchId { get; set; }
 
         public DateTime Date { get; set; }
 

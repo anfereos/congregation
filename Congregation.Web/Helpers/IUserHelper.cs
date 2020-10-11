@@ -33,6 +33,8 @@ namespace Congregation.Web.Helpers
 
         Task<User> GetUserAsync(Guid userId);
 
+        Task<User> GetUserAsync(int churchid);
+
         Task<string> GenerateEmailConfirmationTokenAsync(User user);
 
         Task<IdentityResult> ConfirmEmailAsync(User user, string token);

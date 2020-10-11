@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Congregation.Web.Data.Entities
 {
@@ -7,14 +6,13 @@ namespace Congregation.Web.Data.Entities
     {
         public int Id { get; set; }
 
+        [Required]
         public User User { get; set; }
 
+        [Required]
         public Meeting Meeting { get; set; }
 
+        [Display(Name = "Is Present")]
         public bool IsPresent { get; set; }
-
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd hh:mm}")]
-        public DateTime Date { get; set; }
-
     }
 }

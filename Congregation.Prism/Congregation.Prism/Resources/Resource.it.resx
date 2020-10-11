@@ -174,13 +174,130 @@
   <data name="ForgotPassword" xml:space="preserve">
     <value>Hai dimenticato la password?</value>
   </data>
-  <data name="Register" xml:space="preserve">
-    <value>Registra nuovo utente</value>
-  </data>
   <data name="LoginError" xml:space="preserve">
     <value>Email o password errati.</value>
   </data>
   <data name="Logout" xml:space="preserve">
     <value>cancella la sottoscrizione</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Registra un nuovo utente</value>
+  </data>
+  <data name="Document" xml:space="preserve">
+    <value>Documento</value>
+  </data>
+  <data name="DocumentPlaceHolder" xml:space="preserve">
+    <value>Inserisci il tuo documento ...</value>
+  </data>
+  <data name="DocumentError" xml:space="preserve">
+    <value>Devi inserire un documento.</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Nomi</value>
+  </data>
+  <data name="FirstNamePlaceHolder" xml:space="preserve">
+    <value>Inserisci i tuoi nomi...</value>
+  </data>
+  <data name="FirstNameError" xml:space="preserve">
+    <value>Devi inserire almeno un nome.</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Cognomi</value>
+  </data>
+  <data name="LastNamePlaceHolder" xml:space="preserve">
+    <value>Inserire il cognome...</value>
+  </data>
+  <data name="LastNameError" xml:space="preserve">
+    <value>Devi inserire almeno un cognome.</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Indirizzo</value>
+  </data>
+  <data name="AddressPlaceHolder" xml:space="preserve">
+    <value>Inserisci il tuo indirizzo ...</value>
+  </data>
+  <data name="AddressError" xml:space="preserve">
+    <value>Devi inserire il tuo indirizzo.</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Telefono</value>
+  </data>
+  <data name="PhoneError" xml:space="preserve">
+    <value>Inserisci il tuo telefono ...</value>
+  </data>
+  <data name="PhonePlaceHolder" xml:space="preserve">
+    <value>Devi inserire il tuo telefono.</value>
+  </data>
+  <data name="Church" xml:space="preserve">
+    <value>Chiesa</value>
+  </data>
+  <data name="ChurchError" xml:space="preserve">
+    <value>Devi selezionare una chiesa.</value>
+  </data>
+  <data name="ChurchPlaceHolder" xml:space="preserve">
+    <value>Seleziona una chiesa ...</value>
+  </data>
+  <data name="District" xml:space="preserve">
+    <value>Quartiere</value>
+  </data>
+  <data name="DistrictError" xml:space="preserve">
+    <value>Devi selezionare un quartiere.</value>
+  </data>
+  <data name="DistrictPlaceHolder" xml:space="preserve">
+    <value>Seleziona un quartiere ...</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>nazione</value>
+  </data>
+  <data name="CountryError" xml:space="preserve">
+    <value>Devi selezionare un paese.</value>
+  </data>
+  <data name="CountryPlaceHolder" xml:space="preserve">
+    <value>Seleziona un Paese ...</value>
+  </data>
+  <data name="PasswordConfirm" xml:space="preserve">
+    <value>Conferma password</value>
+  </data>
+  <data name="PasswordConfirmError1" xml:space="preserve">
+    <value>Devi inserire una password di conferma.</value>
+  </data>
+  <data name="PasswordConfirmError2" xml:space="preserve">
+    <value>La password e la conferma non corrispondono.</value>
+  </data>
+  <data name="PasswordConfirmPlaceHolder" xml:space="preserve">
+    <value>Immettere una conferma della password...</value>
+  </data>
+  <data name="Error001" xml:space="preserve">
+    <value>Utente non trovato.</value>
+  </data>
+  <data name="Error002" xml:space="preserve">
+    <value>Error002</value>
+  </data>
+  <data name="Error003" xml:space="preserve">
+    <value>Un utente con quell'email è già registrato.</value>
+  </data>
+  <data name="Error004" xml:space="preserve">
+    <value>Chiesa non trovata.</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="RegisterMessge" xml:space="preserve">
+    <value>Il tuo utente è stato registrato con successo, è stata inviata un'e-mail per confermare l'account utente.</value>
+  </data>
+  <data name="Error005" xml:space="preserve">
+    <value>Error005</value>
+  </data>
+  <data name="Error006" xml:space="preserve">
+    <value>Error006</value>
+  </data>
+  <data name="ProfessionError" xml:space="preserve">
+    <value>Errore di professione</value>
+  </data>
+  <data name="Profession" xml:space="preserve">
+    <value>Professione</value>
+  </data>
+  <data name="ProfessionPlaceHolder" xml:space="preserve">
+    <value>Devi entrare in una professione.</value>
   </data>
 </root>
