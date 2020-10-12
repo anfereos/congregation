@@ -297,4 +297,7 @@
   <data name="ProfessionPlaceHolder" xml:space="preserve">
     <value>Seleccione una profesión.</value>
   </data>
+  <data name="Assistance" xml:space="preserve">
+    <value>Asistencia</value>
+  </data>
 </root>

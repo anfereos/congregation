@@ -130,7 +130,9 @@ namespace Congregation.Prism.Helpers
         public static string Profession => Resource.Profession;
 
         public static string ProfessionPlaceHolder => Resource.ProfessionPlaceHolder;
-        
+
+        public static string Assistance => Resource.Assistance;
+
 
 
     }

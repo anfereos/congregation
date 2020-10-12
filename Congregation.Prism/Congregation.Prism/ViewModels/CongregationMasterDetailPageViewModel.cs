@@ -68,8 +68,17 @@ namespace Congregation.Prism.ViewModels
             {
                 Icon = "ic_person",
                 PageName = $"{nameof(RegisterPage)}",
-                Title = Languages.Register
+                Title = Languages.Register,
+                IsLoginRequired = true
+            },
+            new Menu
+            {
+                Icon = "ic_person",
+                PageName = $"{nameof(AssistancePage)}",
+                Title = Languages.Assistance,
+                IsLoginRequired = true
             }
+
         };
 
             Menus = new ObservableCollection<MenuItemViewModel>(

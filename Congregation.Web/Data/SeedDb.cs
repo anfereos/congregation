@@ -32,8 +32,8 @@ namespace Congregation.Web.Data
             await CheckCountriesAsync();
             await CheckProfessionAsync();
             await CheckRolesAsync();
-            await CheckUsersAsync();
-            //await CheckUserAsync("8511", "Andres", "Restrepo", "anfereos@hotmail.com", "314 999 99 99", "Calle Luna Calle Sol", UserType.Admin);
+            //await CheckUsersAsync();
+            await CheckUserAsync("8511", "Andres", "Restrepo", "anfereos@hotmail.com", "314 999 99 99", "Calle Luna Calle Sol", UserType.Admin);
         }
 
         private async Task CheckRolesAsync()
@@ -43,113 +43,113 @@ namespace Congregation.Web.Data
             await _userHelper.CheckRoleAsync(UserType.Teacher.ToString());
         }
 
-        //private async Task<User> CheckUserAsync(
-        //    string document,
-        //    string firstName,
-        //    string lastName,
-        //    string email,
-        //    string phone,
-        //    string address,
-        //    UserType userType)
-        //{
-        //    User user = await _userHelper.GetUserAsync(email);
-        //    if (user == null)
-        //    {
-        //        user = new User
-        //        {
-        //            FirstName = firstName,
-        //            LastName = lastName,
-        //            Email = email,
-        //            UserName = email,
-        //            PhoneNumber = phone,
-        //            Address = address,
-        //            Document = document,
-        //            Church = _context.Churches.FirstOrDefault(),
-        //            Profession = _context.Professions.FirstOrDefault(),
-        //            UserType = userType
-        //        };
-
-        //        await _userHelper.AddUserAsync(user, "123456");
-        //        await _userHelper.AddUserToRoleAsync(user, userType.ToString());
-
-        //        string token = await _userHelper.GenerateEmailConfirmationTokenAsync(user);
-        //        await _userHelper.ConfirmEmailAsync(user, token);
-
-        //    }
-
-        //    return user;
-        //}
-
-        private async Task CheckUsersAsync()
-        {
-            if (!_context.Users.Any())
-            {
-                await CheckAdminsAsync();
-                await CheckMembersAsync();
-            }
-        }
-
-        private async Task CheckMembersAsync()
-        {
-            for (int i = 1; i <= 100; i++)
-            {
-                await CheckUserAsync($"200{i}", $"member{i}@yopmail.com", UserType.Member);
-            }
-        }
-
-        private async Task CheckAdminsAsync()
-        {
-            await CheckUserAsync("1001", "admin1@yopmail.com", UserType.Admin);
-        }
-
         private async Task<User> CheckUserAsync(
             string document,
+            string firstName,
+            string lastName,
             string email,
+            string phone,
+            string address,
             UserType userType)
         {
-            RandomUsers randomUsers;
-
-            do
-            {
-                randomUsers = await _apiService.GetRandomUser("https://randomuser.me", "api");
-            } while (randomUsers == null);
-
-            Guid imageId = Guid.Empty;
-            RandomUser randomUser = randomUsers.Results.FirstOrDefault();
-            string imageUrl = randomUser.Picture.Large.ToString().Substring(22);
-            Stream stream = await _apiService.GetPictureAsync("https://randomuser.me", imageUrl);
-            if (stream != null)
-            {
-                imageId = await _blobHelper.UploadBlobAsync(stream, "users");
-            }
-
-            //int cityId = _random.Next(1, _context.Cities.Count());
             User user = await _userHelper.GetUserAsync(email);
             if (user == null)
             {
                 user = new User
                 {
-                    FirstName = randomUser.Name.First,
-                    LastName = randomUser.Name.Last,
+                    FirstName = firstName,
+                    LastName = lastName,
                     Email = email,
                     UserName = email,
-                    PhoneNumber = randomUser.Cell,
-                    Address = $"{randomUser.Location.Street.Number}, {randomUser.Location.Street.Name}",
+                    PhoneNumber = phone,
+                    Address = address,
                     Document = document,
-                    UserType = userType,
                     Church = _context.Churches.FirstOrDefault(),
                     Profession = _context.Professions.FirstOrDefault(),
-                    ImageId = imageId
+                    UserType = userType
                 };
 
                 await _userHelper.AddUserAsync(user, "123456");
                 await _userHelper.AddUserToRoleAsync(user, userType.ToString());
+
                 string token = await _userHelper.GenerateEmailConfirmationTokenAsync(user);
                 await _userHelper.ConfirmEmailAsync(user, token);
+
             }
 
             return user;
         }
+
+        //private async Task CheckUsersAsync()
+        //{
+        //    if (!_context.Users.Any())
+        //    {
+        //        await CheckAdminsAsync();
+        //        await CheckMembersAsync();
+        //    }
+        //}
+
+        //private async Task CheckMembersAsync()
+        //{
+        //    for (int i = 1; i <= 10; i++)
+        //    {
+        //        await CheckUserAsync($"200{i}", $"member{i}@yopmail.com", UserType.Member);
+        //    }
+        //}
+
+        //private async Task CheckAdminsAsync()
+        //{
+        //    await CheckUserAsync("1001", "admin1@yopmail.com", UserType.Admin);
+        //}
+
+        //private async Task<User> CheckUserAsync(
+        //    string document,
+        //    string email,
+        //    UserType userType)
+        //{
+        //    RandomUsers randomUsers;
+
+        //    do
+        //    {
+        //        randomUsers = await _apiService.GetRandomUser("https://randomuser.me", "api");
+        //    } while (randomUsers == null);
+
+        //    Guid imageId = Guid.Empty;
+        //    RandomUser randomUser = randomUsers.Results.FirstOrDefault();
+        //    string imageUrl = randomUser.Picture.Large.ToString().Substring(22);
+        //    Stream stream = await _apiService.GetPictureAsync("https://randomuser.me", imageUrl);
+        //    if (stream != null)
+        //    {
+        //        imageId = await _blobHelper.UploadBlobAsync(stream, "users");
+        //    }
+
+        //    //int churchId = _random.Next(1, _context.Churchs.Count());//para crear con diferentes ciudades
+        //    User user = await _userHelper.GetUserAsync(email);
+        //    if (user == null)
+        //    {
+        //        user = new User
+        //        {
+        //            FirstName = randomUser.Name.First,
+        //            LastName = randomUser.Name.Last,
+        //            Email = email,
+        //            UserName = email,
+        //            PhoneNumber = randomUser.Cell,
+        //            Address = $"{randomUser.Location.Street.Number}, {randomUser.Location.Street.Name}",
+        //            Document = document,
+        //            UserType = userType,
+        //            Church = _context.Churches.FirstOrDefault(),
+        //            Profession = _context.Professions.FirstOrDefault(),
+        //            ImageId = imageId
+        //        };
+
+        //        await _userHelper.AddUserAsync(user, "123456");
+        //        await _userHelper.AddUserToRoleAsync(user, userType.ToString());
+        //        string token = await _userHelper.GenerateEmailConfirmationTokenAsync(user);
+        //        await _userHelper.ConfirmEmailAsync(user, token);
+        //    }
+
+        //    return user;
+        //}
 
 
         private async Task CheckCountriesAsync()

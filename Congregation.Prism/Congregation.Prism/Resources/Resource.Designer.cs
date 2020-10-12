@@ -97,6 +97,15 @@ namespace Congregation.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Assistance.
+        /// </summary>
+        public static string Assistance {
+            get {
+                return ResourceManager.GetString("Assistance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Church.
         /// </summary>
         public static string Church {
