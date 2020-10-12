@@ -97,9 +97,6 @@ namespace Congregation.Web.Controllers.API
 
 
 
-
-
-
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] MeetingRequest request)
         {
@@ -172,9 +169,6 @@ namespace Congregation.Web.Controllers.API
             return Ok(meeting);
 
         }
-
-
-
 
 
 
