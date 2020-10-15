@@ -4,6 +4,7 @@ using Congregation.Web.Data;
 using Congregation.Web.Data.Entities;
 using Congregation.Web.Helpers;
 using Congregation.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -35,6 +36,7 @@ namespace Congregation.Web.Controllers
 
         }
 
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Users

@@ -133,6 +133,19 @@ namespace Congregation.Prism.Helpers
 
         public static string Assistance => Resource.Assistance;
 
+        public static string LoginFirstMessage => Resource.LoginFirstMessage;
+
+        public static string PictureSource => Resource.PictureSource;
+
+        public static string Cancel => Resource.Cancel;
+
+        public static string FromCamera => Resource.FromCamera;
+
+        public static string FromGallery => Resource.FromGallery;
+
+        public static string NoCameraSupported => Resource.NoCameraSupported;
+
+        public static string NoGallerySupported => Resource.NoGallerySupported;
 
 
     }

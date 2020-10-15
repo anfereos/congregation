@@ -23,5 +23,8 @@ namespace Congregation.Web.Data.Entities
         [JsonIgnore]//TODO:esto mio para tomar el id en MeetingController
         public ICollection<User> Users { get; set; }
 
+        [JsonIgnore]
+        public ICollection<Meeting> Meetings { get; set; }
+
     }
 }

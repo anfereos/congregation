@@ -38,10 +38,24 @@ namespace Congregation.Web.Data
                 dep.HasOne(d => d.Country).WithMany(c => c.Districts).OnDelete(DeleteBehavior.Cascade);
             });
 
+            //modelBuilder.Entity<Church>(cit =>
+            //{
+            //    cit.HasIndex("Name", "DistrictId").IsUnique();
+            //    cit.HasOne(c => c.District).WithMany(d => d.Churches).OnDelete(DeleteBehavior.Cascade);
+            //});
+
             modelBuilder.Entity<Church>(cit =>
             {
                 cit.HasIndex("Name", "DistrictId").IsUnique();
                 cit.HasOne(c => c.District).WithMany(d => d.Churches).OnDelete(DeleteBehavior.Cascade);
+                cit.HasMany(c => c.Meetings).WithOne(d => d.Church).OnDelete(DeleteBehavior.Cascade);
+            });
+
+
+            modelBuilder.Entity<Meeting>(mee =>
+            {
+                mee.HasIndex("Date").IsUnique();
+                mee.HasMany(c => c.Assistances).WithOne(d => d.Meeting).OnDelete(DeleteBehavior.Cascade);
             });
 
 

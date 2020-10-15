@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using Congregation.Common.Services;
 using Syncfusion.Licensing;
 using Congregation.Prism.Helpers;
+using Congregation.Common.Helpers;
 
 namespace Congregation.Prism
 {
@@ -32,8 +33,11 @@ namespace Congregation.Prism
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
+
             containerRegistry.Register<IApiService, ApiService>();
             containerRegistry.Register<IRegexHelper, RegexHelper>();
+            containerRegistry.Register<IFilesHelper, FilesHelper>();
+
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<CongregationMasterDetailPage, CongregationMasterDetailPageViewModel>();

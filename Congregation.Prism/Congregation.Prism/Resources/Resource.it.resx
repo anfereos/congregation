@@ -303,4 +303,25 @@
   <data name="Assistance" xml:space="preserve">
     <value>Assistenza</value>
   </data>
+  <data name="LoginFirstMessage" xml:space="preserve">
+    <value>Devi essere loggato per completare questa azione. Puoi accedere o registrarti come utente qui sotto.</value>
+  </data>
+  <data name="PictureSource" xml:space="preserve">
+    <value>Da dove vuoi prendere l'immagine?</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="FromCamera" xml:space="preserve">
+    <value>Della fotocamera</value>
+  </data>
+  <data name="FromGallery" xml:space="preserve">
+    <value>Dalla galleria</value>
+  </data>
+  <data name="NoCameraSupported" xml:space="preserve">
+    <value>Il dispositivo non supporta l'accesso alla fotocamera.</value>
+  </data>
+  <data name="NoGallerySupported" xml:space="preserve">
+    <value>Il dispositivo non supporta l'accesso alla galleria.</value>
+  </data>
 </root>

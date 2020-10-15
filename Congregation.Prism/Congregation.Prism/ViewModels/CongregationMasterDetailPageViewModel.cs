@@ -54,6 +54,13 @@ namespace Congregation.Prism.ViewModels
             new Menu
             {
                 Icon = "ic_person",
+                PageName = $"{nameof(AssistancePage)}",
+                Title = Languages.Assistance,
+                IsLoginRequired = true
+            },
+            new Menu
+            {
+                Icon = "ic_person",
                 PageName = $"{nameof(ModifyUserPage)}",
                 Title = Languages.ModifyUser,
                 IsLoginRequired = true
@@ -62,23 +69,16 @@ namespace Congregation.Prism.ViewModels
             {
                 Icon = "ic_exit_to_app",
                 PageName = $"{nameof(LoginPage)}",
-                Title = Settings.IsLogin ? Languages.Logout : Languages.Login
+                Title = Settings.IsLogin ? Languages.Logout : Languages.Login,
+                IsLoginRequired = false
             },
             new Menu
             {
                 Icon = "ic_person",
                 PageName = $"{nameof(RegisterPage)}",
                 Title = Languages.Register,
-                IsLoginRequired = true
-            },
-            new Menu
-            {
-                Icon = "ic_person",
-                PageName = $"{nameof(AssistancePage)}",
-                Title = Languages.Assistance,
-                IsLoginRequired = true
+                IsLoginRequired = false
             }
-
         };
 
             Menus = new ObservableCollection<MenuItemViewModel>(
