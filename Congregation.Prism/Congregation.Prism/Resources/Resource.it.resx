@@ -324,4 +324,10 @@
   <data name="NoGallerySupported" xml:space="preserve">
     <value>Il dispositivo non supporta l'accesso alla galleria.</value>
   </data>
+  <data name="RecoverPassword" xml:space="preserve">
+    <value>Recupera la password</value>
+  </data>
+  <data name="RecoverPasswordMessage" xml:space="preserve">
+    <value>È stata inviata un'e-mail per modificare la password.</value>
+  </data>
 </root>
