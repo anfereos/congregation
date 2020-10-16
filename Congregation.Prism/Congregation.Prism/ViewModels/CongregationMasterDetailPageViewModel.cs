@@ -16,9 +16,11 @@ namespace Congregation.Prism.ViewModels
     {
         private readonly INavigationService _navigationService;
         private UserResponse _user;
+        private static CongregationMasterDetailPageViewModel _instance;
 
         public CongregationMasterDetailPageViewModel(INavigationService navigationService) : base(navigationService)
         {
+            _instance = this;
             _navigationService = navigationService;
             LoadMenus();
             LoadUser();
@@ -31,7 +33,13 @@ namespace Congregation.Prism.ViewModels
             set => SetProperty(ref _user, value);
         }
 
-        private void LoadUser()
+        public static CongregationMasterDetailPageViewModel GetInstance()
+        {
+            return _instance;
+        }
+
+
+        public void LoadUser()
         {
             if (Settings.IsLogin)
             {

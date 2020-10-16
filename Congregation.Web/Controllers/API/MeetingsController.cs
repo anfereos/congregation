@@ -170,8 +170,6 @@ namespace Congregation.Web.Controllers.API
 
         }
 
-
-
         [HttpPut]
         public async Task<IActionResult> PutMeeting(MeetingResponse meeting)
         {
@@ -206,17 +204,15 @@ namespace Congregation.Web.Controllers.API
 
         }
 
-
-
-
         [HttpGet]
         public IActionResult GetMeetings()
         {
             return Ok(_context.Meetings
                 .Include(c => c.Church)
-                .Include(a => a.Assistances).ToList());
+                .Include(a => a.Assistances)
+                .ThenInclude(u => u.User).ToList());
+
+
         }
-
-
     }
 }

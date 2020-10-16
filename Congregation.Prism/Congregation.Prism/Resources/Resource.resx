@@ -327,4 +327,13 @@
   <data name="RecoverPassword" xml:space="preserve">
     <value>Recover Password</value>
   </data>
+  <data name="ChangeUserMessage" xml:space="preserve">
+    <value>User updated.</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
 </root>

@@ -115,6 +115,24 @@ namespace Congregation.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change Password.
+        /// </summary>
+        public static string ChangePassword {
+            get {
+                return ResourceManager.GetString("ChangePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User updated..
+        /// </summary>
+        public static string ChangeUserMessage {
+            get {
+                return ResourceManager.GetString("ChangeUserMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Church.
         /// </summary>
         public static string Church {
@@ -678,6 +696,15 @@ namespace Congregation.Prism.Resources {
         public static string RegisterMessge {
             get {
                 return ResourceManager.GetString("RegisterMessge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
             }
         }
         

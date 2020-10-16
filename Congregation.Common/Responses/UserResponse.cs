@@ -21,6 +21,10 @@ namespace Congregation.Common.Responses
 
         public string Address { get; set; }
 
+        public ChurchResponse Church { get; set; }
+
+        public ProfessionResponse Profession { get; set; }
+
         public Guid ImageId { get; set; }
 
         public string ImageFullPath => ImageId == Guid.Empty

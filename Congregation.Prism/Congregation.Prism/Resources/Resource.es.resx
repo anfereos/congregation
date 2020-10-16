@@ -300,7 +300,7 @@
   <data name="Assistance" xml:space="preserve">
     <value>Asistencia</value>
   </data>
- <data name="LoginFirstMessage" xml:space="preserve">
+  <data name="LoginFirstMessage" xml:space="preserve">
     <value>Para completar esta acción debe haber iniciado sesión. Puede iniciar sesión o registrarse como usuario a continuación.</value>
   </data>
   <data name="PictureSource" xml:space="preserve">
@@ -326,5 +326,14 @@
   </data>
   <data name="RecoverPasswordMessage" xml:space="preserve">
     <value>Se envió un correo electrónico para cambiar su contraseña.</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Cambiar Contraseña</value>
+  </data>
+  <data name="ChangeUserMessage" xml:space="preserve">
+    <value>Usuario actualizado.</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Guardar</value>
   </data>
 </root>

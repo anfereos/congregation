@@ -330,4 +330,13 @@
   <data name="RecoverPasswordMessage" xml:space="preserve">
     <value>È stata inviata un'e-mail per modificare la password.</value>
   </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Cambiar Contraseña</value>
+  </data>
+  <data name="ChangeUserMessage" xml:space="preserve">
+    <value>Usuario actualizado.</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Salva</value>
+  </data>
 </root>

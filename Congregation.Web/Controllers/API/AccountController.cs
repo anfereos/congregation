@@ -246,6 +246,20 @@ namespace Congregation.Web.Controllers.API
                 });
             }
 
+
+
+            Profession profession = await _context.Professions.FindAsync(request.ProfessionId);
+            if (profession == null)
+            {
+                return BadRequest(new Response
+                {
+                    IsSuccess = false,
+                    Message = "Error004"
+                });
+            }
+
+
+
             Guid imageId = user.ImageId;
 
             if (request.ImageArray != null)
@@ -260,6 +274,7 @@ namespace Congregation.Web.Controllers.API
             user.Document = request.Document;
             user.Church = church;
             user.ImageId = imageId;
+            user.Profession = profession;
 
             IdentityResult respose = await _userHelper.UpdateUserAsync(user);
             if (!respose.Succeeded)
