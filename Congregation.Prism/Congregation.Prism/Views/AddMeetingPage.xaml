@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             x:Class="Congregation.Prism.Views.AddMeetingPage"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+           	 xmlns:i18n="clr-namespace:Congregation.Prism.Helpers"
+             BackgroundColor="{StaticResource ColorBackground}"
+             Title="{Binding Title}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="ic_action_arrow_back" Command="{Binding BackMeetingCommand}"/>
+    </ContentPage.ToolbarItems>
+
+
+    <AbsoluteLayout>
+        <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All" 
+                     Padding="5">
+
+            <inputLayout:SfTextInputLayout Hint="{i18n:Translate DateMeeting}" 
+                                                   ContainerType="Outlined">
+                <DatePicker Date ="{Binding DateMeeting}"/>
+            </inputLayout:SfTextInputLayout>
+
+            <Button Command="{Binding NewMeetingCommand}"
+                    IsEnabled="{Binding IsEnabled}"
+                    Text="{i18n:Translate SaveRefresh}"
+                    VerticalOptions="StartAndExpand"/>
+
+            <CollectionView ItemsSource="{Binding Assistances}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <ffimageloading:CachedImage Aspect="AspectFill"
+                                    Source="{Binding User.ImageFullPath}" 
+                                    CacheDuration= "50"
+                                    HeightRequest="100"
+                                    Margin="5"
+                                    RetryCount= "3"
+                                    RetryDelay= "600"
+                                    WidthRequest="100">
+                                <ffimageloading:CachedImage.Transformations>
+                                    <fftransformations:CircleTransformation />
+                                </ffimageloading:CachedImage.Transformations>
+                            </ffimageloading:CachedImage>
+
+                            <StackLayout Grid.Column="1" VerticalOptions="Center">
+                                <Label Text="{Binding User.FullName}" 
+                                   FontAttributes="Bold"
+                                   FontSize="Medium"
+                                   LineBreakMode="TailTruncation" />
+                            </StackLayout>
+                            <CheckBox Grid.Column="2"
+                                      IsChecked="{Binding IsPresent}" 
+                                      Color="{StaticResource ColorPrimary}"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button Command="{Binding UpdateMeetingCommand}"
+                    IsEnabled="{Binding IsEnabledSave}"
+                    Text="{i18n:Translate Update}"
+                    VerticalOptions="EndAndExpand"/>
+
+
+        </StackLayout>
+        <busyindicator:SfBusyIndicator AnimationType="DoubleCircle" 
+                                       AbsoluteLayout.LayoutBounds=".5,.5,.5,.5"
+                	                   AbsoluteLayout.LayoutFlags="All"
+                	                   BackgroundColor="{StaticResource ColorBackground}"
+                	                   HorizontalOptions="Center"
+                	                   TextColor="{StaticResource ColorPrimary}"
+                	                   IsBusy="{Binding IsRunning}"
+                	                   Title="{i18n:Translate Loading}"
+                	                   VerticalOptions="Center"
+                	                   ViewBoxWidth="80"
+                	                   ViewBoxHeight="80" />
+    </AbsoluteLayout>
+  
+</ContentPage>

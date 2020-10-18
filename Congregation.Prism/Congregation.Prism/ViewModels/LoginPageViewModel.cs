@@ -18,7 +18,6 @@ namespace Congregation.Prism.ViewModels
         private bool _isRunning;
         private bool _isEnabled;
         private string _password;
-        private string _pageReturn;
         private DelegateCommand _loginCommand;
         private DelegateCommand _registerCommand;
         private DelegateCommand _forgotPasswordCommand;
@@ -57,25 +56,6 @@ namespace Congregation.Prism.ViewModels
             set => SetProperty(ref _password, value);
         }
         public object JsonConvert { get; private set; }
-
-
-
-        //CUANDO USO ESTE CODIGO NO ME CARGA LA LOGINPAGE
-
-
-        //public override void OnNavigatedTo(INavigationParameters parameters)
-        //{
-        //    base.OnNavigatedTo(parameters);
-        //    if (parameters.ContainsKey("pageReturn"))
-        //    {
-        //        _pageReturn = parameters.GetValue<string>("pageReturn");
-        //    }
-        //}
-
-
-
-
-
 
         private async void LoginAsync()
         {
@@ -139,28 +119,7 @@ namespace Congregation.Prism.ViewModels
             await _navigationService.NavigateAsync($"/{nameof(CongregationMasterDetailPage)}/NavigationPage/{nameof(MembersPage)}");
 
 
-            //CUANDO USO ESTE CODIGO NO ME CARGA LA LOGINPAGE
-
-            //if (string.IsNullOrEmpty(_pageReturn))
-            //{
-            //    await _navigationService.NavigateAsync($"/{nameof(CongregationMasterDetailPage)}/NavigationPage/{nameof(MembersPage)}");
-            //}
-            //else
-            //{
-            //    await _navigationService.NavigateAsync($"/{nameof(CongregationMasterDetailPage)}/NavigationPage/{_pageReturn}");
-            //}
-
-
-
-
-
-
             Password = string.Empty;
-
-
-
-
-
         }
 
         private async void ForgotPasswordAsync()

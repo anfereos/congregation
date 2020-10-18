@@ -290,7 +290,7 @@ namespace Congregation.Web.Controllers.API
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPost]
         [Route("ChangePasswordApi")]
-        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordRequest request)
+        public async Task<IActionResult> ChangePasswordApi([FromBody] ChangePasswordRequest request)
         {
             if (!ModelState.IsValid)
             {

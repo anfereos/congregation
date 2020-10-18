@@ -155,8 +155,40 @@ namespace Congregation.Prism.Helpers
 
         public static string ChangeUserMessage => Resource.ChangeUserMessage;
 
+        public static string Meetings => Resource.Meetings;
 
+        public static string AddMeeting => Resource.AddMeeting;
 
+        public static string DateMeeting => Resource.DateMeeting;
+
+        public static string DateMeetinglaceHolder => Resource.DateMeetingPlaceHolder;
+
+        public static string Save => Resource.Save;
+
+        public static string Update => Resource.Update;
+        public static string ConfirmNewPassword => Resource.ConfirmNewPassword;
+
+        public static string ConfirmNewPasswordError1 => Resource.ConfirmNewPasswordError1;
+
+        public static string ConfirmNewPasswordError2 => Resource.ConfirmNewPasswordError2;
+
+        public static string ConfirmNewPasswordPlaceHolder => Resource.ConfirmNewPasswordPlaceHolder;
+
+        public static string CurrentPassword => Resource.CurrentPassword;
+
+        public static string CurrentPasswordError => Resource.CurrentPasswordError;
+
+        public static string CurrentPasswordPlaceHolder => Resource.CurrentPasswordPlaceHolder;
+
+        public static string NewPassword => Resource.NewPassword;
+
+        public static string NewPasswordError => Resource.NewPasswordError;
+
+        public static string NewPasswordPlaceHolder => Resource.NewPasswordPlaceHolder;
+
+        public static string ChangePassworrdMessage => Resource.ChangePassworrdMessage;
+
+        public static string SaveRefresh => Resource.SaveRefresh;
     }
 
 }

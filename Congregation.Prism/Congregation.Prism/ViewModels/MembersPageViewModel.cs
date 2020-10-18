@@ -1,8 +1,11 @@
-﻿using Congregation.Common.Responses;
+﻿using Congregation.Common.Helpers;
+using Congregation.Common.Responses;
 using Congregation.Common.Services;
 using Congregation.Prism.Helpers;
+using Newtonsoft.Json;
 using Prism.Commands;
 using Prism.Navigation;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -16,11 +19,9 @@ namespace Congregation.Prism.ViewModels
         private readonly IApiService _apiService;
         private ObservableCollection<UserResponse> _members;
         private bool _isRunning;
-
         private string _search;
         private List<UserResponse> _myMembers;
         private DelegateCommand _searchCommand;
-
 
         public MembersPageViewModel(INavigationService navigationService, IApiService apiService) : base(navigationService)
         {
@@ -38,7 +39,6 @@ namespace Congregation.Prism.ViewModels
             set => SetProperty(ref _isRunning, value);
         }
 
-
         public string Search
         {
             get => _search;
@@ -48,7 +48,6 @@ namespace Congregation.Prism.ViewModels
                 ShowMembers();
             }
         }
-
 
         public ObservableCollection<UserResponse> Members
         {
@@ -65,8 +64,10 @@ namespace Congregation.Prism.ViewModels
             }
 
             IsRunning = true;
+            TokenResponse token = JsonConvert.DeserializeObject<TokenResponse>(Settings.Token);
+
             string url = App.Current.Resources["UrlAPI"].ToString();
-            Response response = await _apiService.GetListAsync<UserResponse>(url, "/api", "/Members");
+            Response response = await _apiService.GetListMembersAsync<UserResponse>(url, "/api", "/Members", token.Token);
             IsRunning = false;
 
             if (!response.IsSuccess)
@@ -80,6 +81,11 @@ namespace Congregation.Prism.ViewModels
 
         }
 
+        private object LogingPage()
+        {
+            throw new NotImplementedException();
+        }
+
         private void ShowMembers()
         {
             if (string.IsNullOrEmpty(Search))
@@ -89,7 +95,7 @@ namespace Congregation.Prism.ViewModels
             else
             {
                 Members = new ObservableCollection<UserResponse>(_myMembers
-                    .Where(m => m.FullName.ToLower().Contains(Search.ToLower())));//TODO: Me falta hacer el filtro de church.id
+                    .Where(m => m.FullName.ToLower().Contains(Search.ToLower())));
             }
         }
     }

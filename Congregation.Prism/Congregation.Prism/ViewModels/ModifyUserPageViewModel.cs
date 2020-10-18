@@ -3,6 +3,7 @@ using Congregation.Common.Request;
 using Congregation.Common.Responses;
 using Congregation.Common.Services;
 using Congregation.Prism.Helpers;
+using Congregation.Prism.Views;
 using Newtonsoft.Json;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
@@ -149,8 +150,6 @@ namespace Congregation.Prism.ViewModels
             set => SetProperty(ref _isEnabled, value);
         }
 
-
-
         private async void LoadProfessionsAsync()
         {
             IsRunning = true;
@@ -215,7 +214,6 @@ namespace Congregation.Prism.ViewModels
             District = Country.Districts.FirstOrDefault(d => d.Churches.FirstOrDefault(c => c.Id == User.Church.Id) != null);
             Church = District.Churches.FirstOrDefault(c => c.Id == User.Church.Id);
         }
-
 
         private async void ChangeImageAsync()
         {
@@ -403,7 +401,7 @@ namespace Congregation.Prism.ViewModels
 
         private async void ChangePasswordAsync()
         {
+            await _navigationService.NavigateAsync(nameof(ChangePasswordPage));
         }
     }
-
 }

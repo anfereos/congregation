@@ -17,6 +17,8 @@ namespace Congregation.Prism.ItemViewModels
             _navigationService = navigationService;
         }
 
+
+
         public DelegateCommand SelectMenuCommand => _selectMenuCommand ?? (_selectMenuCommand = new DelegateCommand(SelectMenuAsync));
 
         private async void SelectMenuAsync()

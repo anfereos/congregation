@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Org.BouncyCastle.Utilities.Zlib;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -132,7 +131,7 @@ namespace Congregation.Web.Controllers.API
 
 
             bool isNew = false;
-            if(meeting == null)
+            if (meeting == null)
             {
                 isNew = true;
                 meeting = new Meeting
@@ -141,17 +140,17 @@ namespace Congregation.Web.Controllers.API
                     Church = church,
                     Date = request.Date
                 };
-            }
-            
-            foreach(User membersChurch in church.Users)
-            {
-                Assistance assistance = meeting.Assistances.FirstOrDefault(m => m.User.Id == membersChurch.Id);
-                if(assistance == null)
+
+                foreach (User membersChurch in church.Users)/// la meti dentro del if para probar
                 {
-                    meeting.Assistances.Add(new Assistance
+                    Assistance assistance = meeting.Assistances.FirstOrDefault(m => m.User.Id == membersChurch.Id);
+                    if (assistance == null)
                     {
-                        User = membersChurch
-                    });
+                        meeting.Assistances.Add(new Assistance
+                        {
+                            User = membersChurch
+                        });
+                    }
                 }
             }
 
@@ -165,16 +164,15 @@ namespace Congregation.Web.Controllers.API
             }
 
             await _context.SaveChangesAsync();
-            //return Ok(_converterHelper.ToMeetingResponse(meeting));
             return Ok(meeting);
-
         }
 
         [HttpPut]
-        public async Task<IActionResult> PutMeeting(MeetingResponse meeting)
+        public async Task<IActionResult> PutMeeting(UpdateMeetingRequest meeting)
         {
             Meeting meetingUpdate = await _context.Meetings
                 .Include(m => m.Assistances)
+                .ThenInclude(u => u.User)//linea nueva para ver si me trae los usuarios
                 .FirstOrDefaultAsync(m => m.Id == meeting.Id);
             if (meetingUpdate == null)
             {
@@ -204,15 +202,25 @@ namespace Congregation.Web.Controllers.API
 
         }
 
+
         [HttpGet]
-        public IActionResult GetMeetings()
+        public async Task<IActionResult> GetMeetings()
         {
-            return Ok(_context.Meetings
-                .Include(c => c.Church)
-                .Include(a => a.Assistances)
-                .ThenInclude(u => u.User).ToList());
+            string email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+            User user = await _userHelper.GetUserAsync(email);
 
+            if (user == null)
+            {
+                return NotFound("Error001");
+            }
 
+            List<Meeting> meetings = await _context.Meetings
+           .Include(m => m.Church)
+           .Include(m => m.Assistances)
+           .Where(m => m.Church.Id == user.Church.Id)
+           .ToListAsync();
+
+            return Ok(meetings);
         }
     }
 }

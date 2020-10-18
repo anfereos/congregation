@@ -3,7 +3,6 @@ using Congregation.Common.Responses;
 using Congregation.Common.Services;
 using Congregation.Prism.Helpers;
 using Prism.Commands;
-using Prism.Mvvm;
 using Prism.Navigation;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
@@ -36,8 +35,8 @@ namespace Congregation.Prism.ViewModels
         public DelegateCommand RecoverCommand => _recoverCommand ?? (_recoverCommand = new DelegateCommand(RecoverAsync));
 
         public string Email
-        { 
-            get => _email; 
+        {
+            get => _email;
             set => SetProperty(ref _email, value);
         }
 
@@ -56,8 +55,8 @@ namespace Congregation.Prism.ViewModels
 
         public override void OnNavigatedTo(INavigationParameters parameters)
         {
-            base.OnNavigatedTo(parameters); 
-            if(parameters.ContainsKey("email"))
+            base.OnNavigatedTo(parameters);
+            if (parameters.ContainsKey("email"))
             {
                 Email = parameters.GetValue<string>("email");
             }

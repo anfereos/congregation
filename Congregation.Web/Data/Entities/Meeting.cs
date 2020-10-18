@@ -11,13 +11,15 @@ namespace Congregation.Web.Data.Entities
         [Required]
         public Church Church { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd hh:mm tt}")]
+        //[DisplayFormat(DataFormatString = "{0:yyyy/MM/dd hh:mm tt}")]
+        //public DateTime Date { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}")]
         public DateTime Date { get; set; }
 
         [Display(Name = "Date")]
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd hh:mm tt}")]
         public DateTime DateLocal => Date.ToLocalTime();
-
 
         public ICollection<Assistance> Assistances { get; set; }
 

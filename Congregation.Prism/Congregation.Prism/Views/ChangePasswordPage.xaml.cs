@@ -2,9 +2,9 @@
 
 namespace Congregation.Prism.Views
 {
-    public partial class AssistancePage : ContentPage
+    public partial class ChangePasswordPage : ContentPage
     {
-        public AssistancePage()
+        public ChangePasswordPage()
         {
             InitializeComponent();
         }

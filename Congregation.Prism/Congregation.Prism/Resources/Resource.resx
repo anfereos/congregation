@@ -117,8 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Accept" xml:space="preserve">
-    <value>Accept</value>
+  <data name="SaveRefresh" xml:space="preserve">
+    <value>Save / Refresh</value>
   </data>
   <data name="ConnectionError" xml:space="preserve">
     <value>Check the internet connection.</value>
@@ -178,7 +178,7 @@
     <value>Email</value>
   </data>
   <data name="Register" xml:space="preserve">
-    <value>Register new user</value>
+    <value>Add new member</value>
   </data>
   <data name="Document" xml:space="preserve">
     <value>Document</value>
@@ -283,7 +283,7 @@
     <value>Your user has been registered ok, an email was sent to confirm the user account.</value>
   </data>
   <data name="Error005" xml:space="preserve">
-    <value>Error005</value>
+    <value>The current password is incorrect.</value>
   </data>
   <data name="Error006" xml:space="preserve">
     <value>Error006</value>
@@ -335,5 +335,56 @@
   </data>
   <data name="Save" xml:space="preserve">
     <value>Save</value>
+  </data>
+  <data name="Meetings" xml:space="preserve">
+    <value>Meetings</value>
+  </data>
+  <data name="AddMeeting" xml:space="preserve">
+    <value>Add / Edit Meeting</value>
+  </data>
+  <data name="DateMeeting" xml:space="preserve">
+    <value>Date Meeting</value>
+  </data>
+  <data name="DateMeetingPlaceHolder" xml:space="preserve">
+    <value>You must enter a date.</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="ConfirmNewPassword" xml:space="preserve">
+    <value>Confirm new password</value>
+  </data>
+  <data name="ConfirmNewPasswordError1" xml:space="preserve">
+    <value>You must enter a confirmation for the new password.</value>
+  </data>
+  <data name="ConfirmNewPasswordError2" xml:space="preserve">
+    <value>User updated.</value>
+  </data>
+  <data name="ConfirmNewPasswordPlaceHolder" xml:space="preserve">
+    <value>Enter the confirmation for the new password...</value>
+  </data>
+  <data name="CurrentPassword" xml:space="preserve">
+    <value>Current password</value>
+  </data>
+  <data name="CurrentPasswordError" xml:space="preserve">
+    <value>You must enter your new password.</value>
+  </data>
+  <data name="CurrentPasswordPlaceHolder" xml:space="preserve">
+    <value>Enter your current password....</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="NewPasswordError" xml:space="preserve">
+    <value>You must enter the new password.</value>
+  </data>
+  <data name="NewPasswordPlaceHolder" xml:space="preserve">
+    <value>Enter the new password...</value>
+  </data>
+  <data name="ChangePassworrdMessage" xml:space="preserve">
+    <value>The password was changed successfully.</value>
+  </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Accept</value>
   </data>
 </root>

@@ -38,7 +38,6 @@ namespace Congregation.Prism.ViewModels
             return _instance;
         }
 
-
         public void LoadUser()
         {
             if (Settings.IsLogin)
@@ -48,27 +47,26 @@ namespace Congregation.Prism.ViewModels
             }
         }
 
-
         private void LoadMenus()
         {
             List<Menu> menus = new List<Menu>
         {
             new Menu
             {
-                Icon = "ic_card_giftcard",
+                Icon = "ic_action_supervised_user_circle",
                 PageName = $"{nameof(MembersPage)}",
                 Title = Languages.Members
             },
             new Menu
             {
-                Icon = "ic_person",
-                PageName = $"{nameof(AssistancePage)}",
-                Title = Languages.Assistance,
+                Icon = "ic_action_check_circle",
+                PageName = $"{nameof(MeetingPage)}",
+                Title = Languages.Meetings,
                 IsLoginRequired = true
             },
             new Menu
             {
-                Icon = "ic_person",
+                Icon = "ic_action_edit",
                 PageName = $"{nameof(ModifyUserPage)}",
                 Title = Languages.ModifyUser,
                 IsLoginRequired = true
@@ -82,7 +80,7 @@ namespace Congregation.Prism.ViewModels
             },
             new Menu
             {
-                Icon = "ic_person",
+                Icon = "ic_action_person_add",
                 PageName = $"{nameof(RegisterPage)}",
                 Title = Languages.Register,
                 IsLoginRequired = false

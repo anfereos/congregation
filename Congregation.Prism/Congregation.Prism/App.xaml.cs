@@ -9,6 +9,8 @@ using Congregation.Common.Services;
 using Syncfusion.Licensing;
 using Congregation.Prism.Helpers;
 using Congregation.Common.Helpers;
+using Congregation.Common.Responses;
+using Newtonsoft.Json;
 
 namespace Congregation.Prism
 {
@@ -25,9 +27,16 @@ namespace Congregation.Prism
 
             InitializeComponent();
 
-            //await NavigationService.NavigateAsync("NavigationPage/MainPage");
-            //await NavigationService.NavigateAsync($"NavigationPage/{nameof(MembersPage)}");
-            await NavigationService.NavigateAsync($"{nameof(CongregationMasterDetailPage)}/NavigationPage/{nameof(MembersPage)}");
+            TokenResponse token = JsonConvert.DeserializeObject<TokenResponse>(Settings.Token);
+
+            if (token == null)
+            {
+                await NavigationService.NavigateAsync($"{nameof(CongregationMasterDetailPage)}/NavigationPage/{nameof(LoginPage)}");
+            }
+            else
+            {
+                await NavigationService.NavigateAsync($"{nameof(CongregationMasterDetailPage)}/NavigationPage/{nameof(MembersPage)}");
+            }
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -45,8 +54,12 @@ namespace Congregation.Prism
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
             containerRegistry.RegisterForNavigation<ModifyUserPage, ModifyUserPageViewModel>();
             containerRegistry.RegisterForNavigation<RegisterPage, RegisterPageViewModel>();
-            containerRegistry.RegisterForNavigation<AssistancePage, AssistancePageViewModel>();
             containerRegistry.RegisterForNavigation<RecoverPasswordPage, RecoverPasswordPageViewModel>();
+            containerRegistry.RegisterForNavigation<MeetingPage, MeetingPageViewModel>();
+
+            containerRegistry.RegisterForNavigation<AddMeetingPage, AddMeetingPageViewModel>();
+            containerRegistry.RegisterForNavigation<UpdateMeetingPage, UpdateMeetingPageViewModel>();
+            containerRegistry.RegisterForNavigation<ChangePasswordPage, ChangePasswordPageViewModel>();
         }
     }
 }

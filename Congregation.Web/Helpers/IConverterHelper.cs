@@ -4,7 +4,7 @@ namespace Congregation.Web.Helpers
 {
     public interface IConverterHelper
     {
-        //Meeting ToMeetingResponse()
+        //Meeting ToMeetingResponse(Meeting meeting);
 
     }
 }

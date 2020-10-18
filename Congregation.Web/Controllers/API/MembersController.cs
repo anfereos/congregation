@@ -1,12 +1,17 @@
 ﻿using Congregation.Web.Data;
+using Congregation.Web.Data.Entities;
 using Congregation.Web.Helpers;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Congregation.Web.Controllers.API
 {
-    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]//requiere token
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]//requiere token
     [ApiController]
     [Route("api/[controller]")]
     public class MembersController : Controller
@@ -21,32 +26,22 @@ namespace Congregation.Web.Controllers.API
         }
 
 
-        //[HttpGet]
-        //public IActionResult GetMembers()
-        //{
-
-        //    string email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;//traigo el email del usuario logeado
-        //    User user = (User)_userHelper.GetUserAsync(email).ToAsyncEnumerable();
-        //    if (user == null)
-        //    {
-        //        return NotFound("User not found");
-        //    }
-
-        //    return Ok(_context.Users
-        //        .Include(p => p.Church).Where(p => p.Church.Id == user.Church.Id)
-        //        .Include(p => p.Profession)
-        //        .OrderBy(p => p.FullName));
-        //}
-
-
         [HttpGet]
-        public IActionResult GetMembers()
+        public async Task<IActionResult> GetMembers()
         {
-            return Ok(_context.Users
-                .Include(p => p.Church)
-                .Include(p => p.Profession)
-                .OrderBy(p => p.FullName));
-        }
+            string email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;//traigo el email del usuario logeado
+            User user = await _userHelper.GetUserAsync(email);
+            if (user == null)
+            {
+                return NotFound("User not found");
+            }
 
+            var members = await _context.Users
+                .Where(u => u.UserType == Common.Enums.UserType.Member)
+                .Include(c => c.Church).Where(c => c.Church.Id == user.Church.Id)
+                .Include(p => p.Profession).ToListAsync();
+
+            return Ok(members);
+        }
     }
 }

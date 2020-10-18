@@ -117,8 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Accept" xml:space="preserve">
-    <value>Aceptar</value>
+  <data name="GrabarRefrescar" xml:space="preserve">
+    <value>Grabar / Refrescar</value>
   </data>
   <data name="ConnectionError" xml:space="preserve">
     <value>Compruebe la conexión a Internet.</value>
@@ -142,7 +142,7 @@
     <value>Miembros</value>
   </data>
   <data name="SearchMember" xml:space="preserve">
-    <value>Buscar Miembro</value>
+    <value>Buscar Miembro.</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Iniciar Sesión</value>
@@ -178,7 +178,7 @@
     <value>Cerrar sesión</value>
   </data>
   <data name="Register" xml:space="preserve">
-    <value>Registrar un nuevo usuario</value>
+    <value>Adicionar nuevo miembro</value>
   </data>
   <data name="Document" xml:space="preserve">
     <value>Documento</value>
@@ -283,7 +283,7 @@
     <value>Su usuario se ha registrado correctamente, se envió un correo electrónico para confirmar la cuenta de usuario.</value>
   </data>
   <data name="Error005" xml:space="preserve">
-    <value>Error005</value>
+    <value>La contraseña actual es incorrecta.</value>
   </data>
   <data name="Error006" xml:space="preserve">
     <value>Error006</value>
@@ -335,5 +335,59 @@
   </data>
   <data name="Save" xml:space="preserve">
     <value>Guardar</value>
+  </data>
+  <data name="Meetings" xml:space="preserve">
+    <value>Reuniones</value>
+  </data>
+  <data name="AddMeeting" xml:space="preserve">
+    <value>Agregar / Editar Reunión</value>
+  </data>
+  <data name="DateMeeting" xml:space="preserve">
+    <value>Fecha de reunión.</value>
+  </data>
+  <data name="DateMeetingPlaceHolder" xml:space="preserve">
+    <value>Debes ingresar una fecha.</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Actualizar</value>
+  </data>
+  <data name="ConfirmNewPassword" xml:space="preserve">
+    <value>Confirmación de contraseña nueva</value>
+  </data>
+  <data name="ConfirmNewPasswordError1" xml:space="preserve">
+    <value>Debes ingresar una confirmación para la nueva contraseña.</value>
+  </data>
+  <data name="ConfirmNewPasswordError2" xml:space="preserve">
+    <value>La nueva contraseña y la confirmación no concuerdan.</value>
+  </data>
+  <data name="ConfirmNewPasswordPlaceHolder" xml:space="preserve">
+    <value>Ingrese la confirmación para la contraseña nueva...</value>
+  </data>
+  <data name="CurrentPassword" xml:space="preserve">
+    <value>Contraseña actual</value>
+  </data>
+  <data name="CurrentPasswordError" xml:space="preserve">
+    <value>Debes ingresar tu contraseña actual.</value>
+  </data>
+  <data name="CurrentPasswordPlaceHolder" xml:space="preserve">
+    <value>Ingresa tu contraseña actual...</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Nueva contraseña</value>
+  </data>
+  <data name="NewPasswordError" xml:space="preserve">
+    <value>Debes ingresar una nueva cotraseña.</value>
+  </data>
+  <data name="NewPasswordPlaceHolder" xml:space="preserve">
+    <value>Ingrese la contraseña nueva...</value>
+  </data>
+  <data name="ChangePassworrdMessage" xml:space="preserve">
+    <value>La contraseña se cambió con éxito.</value>
+  </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
+  <data name="SaveRefresh" xml:space="preserve">
+    <value>Guardar / Refrescar</value>
   </data>
 </root>
