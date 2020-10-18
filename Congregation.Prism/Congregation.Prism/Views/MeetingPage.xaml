@@ -21,6 +21,26 @@
                      AbsoluteLayout.LayoutFlags="All" 
                      Padding="5">
 
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="1"
+                                   Text="Date"
+                                   FontAttributes="Bold"
+                                   FontSize="Medium"/>
+                <Label Grid.Column="2"
+                                   Text="Church"
+                                   FontAttributes="Bold"
+                                   FontSize="Medium"/>
+                <Label Grid.Column="3"
+                                   Text="# Assistance"
+                                   FontAttributes="Bold"
+                                   FontSize="Medium"/>
+            </Grid>
+
             <CollectionView ItemsSource="{Binding Meetings}">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical"/>
@@ -36,7 +56,6 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-
                             <StackLayout Grid.Column="1" VerticalOptions="Center">
                                 <Label Text="{Binding Date, StringFormat='{0:yyyy/MM/dd}'}"
                                    FontAttributes="Bold"

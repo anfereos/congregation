@@ -3,6 +3,7 @@ using Congregation.Common.Request;
 using Congregation.Common.Responses;
 using Congregation.Common.Services;
 using Congregation.Prism.Helpers;
+using Microsoft.AspNetCore.Authorization;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
 using Prism.Commands;
@@ -203,6 +204,7 @@ namespace Congregation.Prism.ViewModels
             Professions = new ObservableCollection<ProfessionResponse>(list.OrderBy(c => c.Name));
         }
 
+        [Authorize(Roles = "Teacher")]
         private async void RegisterAsync()
         {
             bool isValid = await ValidateDataAsync();
@@ -269,6 +271,8 @@ namespace Congregation.Prism.ViewModels
 
         private async Task<bool> ValidateDataAsync()
         {
+
+
             if (string.IsNullOrEmpty(User.Document))
             {
                 await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.DocumentError, Languages.Accept);

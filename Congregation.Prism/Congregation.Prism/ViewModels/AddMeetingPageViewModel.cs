@@ -4,9 +4,7 @@ using Congregation.Common.Responses;
 using Congregation.Common.Services;
 using Congregation.Prism.Helpers;
 using Congregation.Prism.Views;
-using Microsoft.AspNetCore.Authorization;
 using Newtonsoft.Json;
-using Prism.AppModel;
 using Prism.Commands;
 using Prism.Navigation;
 using System;
@@ -65,7 +63,6 @@ namespace Congregation.Prism.ViewModels
             set => SetProperty(ref _assistances, value);
         }
 
-
         public ChurchResponse Church
         {
             get => _church;
@@ -96,7 +93,6 @@ namespace Congregation.Prism.ViewModels
             set => SetProperty(ref _isEnabledSave, value);
         }
 
-        [Authorize(Roles = "Admin")]
         private async void NewMeetingAsync()
         {
             IsRunning = true;
@@ -199,7 +195,6 @@ namespace Congregation.Prism.ViewModels
                 await _navigationService.NavigateAsync($"/{nameof(CongregationMasterDetailPage)}/NavigationPage/{nameof(LoginPage)}", parameters);
             }
         }
-
         private async void BackMeetingAsync()
         {
             await _navigationService.NavigateAsync($"/{nameof(CongregationMasterDetailPage)}/NavigationPage/{nameof(MeetingPage)}");

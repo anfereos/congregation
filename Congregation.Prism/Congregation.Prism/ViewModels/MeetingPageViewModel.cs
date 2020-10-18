@@ -84,7 +84,7 @@ namespace Congregation.Prism.ViewModels
         {
             if (Settings.IsLogin)
             {
-                await _navigationService.NavigateAsync(nameof(AddMeetingPage));
+                await _navigationService.NavigateAsync($"/{nameof(CongregationMasterDetailPage)}/NavigationPage/{nameof(AddMeetingPage)}");
             }
             else
             {

@@ -11,10 +11,7 @@ namespace Congregation.Web.Data.Entities
         [Required]
         public Church Church { get; set; }
 
-        //[DisplayFormat(DataFormatString = "{0:yyyy/MM/dd hh:mm tt}")]
-        //public DateTime Date { get; set; }
-
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}")]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd hh:mm tt}")]
         public DateTime Date { get; set; }
 
         [Display(Name = "Date")]
