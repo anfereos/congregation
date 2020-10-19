@@ -20,7 +20,7 @@ namespace Congregation.Web.Data.Entities
         [JsonIgnore]
         public District District { get; set; }
 
-        [JsonIgnore]//TODO:esto mio para tomar el id en MeetingController
+        [JsonIgnore]
         public ICollection<User> Users { get; set; }
 
         [JsonIgnore]

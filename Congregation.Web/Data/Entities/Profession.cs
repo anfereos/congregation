@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Congregation.Web.Data.Entities
 {
@@ -9,5 +11,8 @@ namespace Congregation.Web.Data.Entities
         [MaxLength(50)]
         [Required]
         public string Name { get; set; }
+
+        [JsonIgnore]
+        public ICollection<User> Users { get; set; }
     }
 }

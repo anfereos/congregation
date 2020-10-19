@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Vereyon.Web;
 
 namespace Congregation.Web.Controllers
 {
@@ -13,10 +14,12 @@ namespace Congregation.Web.Controllers
     public class ProfessionsController : Controller
     {
         private readonly DataContext _context;
+        private readonly IFlashMessage _flashMessage;
 
-        public ProfessionsController(DataContext context)
+        public ProfessionsController(DataContext context, IFlashMessage flashMessage)
         {
             _context = context;
+            _flashMessage = flashMessage;
         }
 
         public async Task<IActionResult> Index()
@@ -134,7 +137,6 @@ namespace Congregation.Web.Controllers
             return View(profession);
         }
 
-        // GET: Professions/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -149,8 +151,17 @@ namespace Congregation.Web.Controllers
                 return NotFound();
             }
 
-            _context.Professions.Remove(profession);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Professions.Remove(profession);
+                await _context.SaveChangesAsync();
+                _flashMessage.Confirmation("The profession was deleted.");
+            }
+            catch
+            {
+                _flashMessage.Danger("The profession can't be deleted because it has related records.");
+            }
+
             return RedirectToAction(nameof(Index));
         }
 

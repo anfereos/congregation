@@ -28,6 +28,5 @@ namespace Congregation.Web.Data.Entities
         [JsonIgnore]
         public Country Country { get; set; }
 
-
     }
 }
