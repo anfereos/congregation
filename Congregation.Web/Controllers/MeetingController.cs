@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 
 namespace Congregation.Web.Controllers
 {
-    [Authorize(Roles = "Teacher")]
     public class MeetingController : Controller
     {
         private readonly DataContext _context;

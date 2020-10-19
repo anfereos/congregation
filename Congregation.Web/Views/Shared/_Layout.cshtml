@@ -46,6 +46,11 @@
                         <li><a asp-area="" asp-controller="Account" asp-action="ListMemberforChurchies">Members</a></li>
                         <li><a asp-area="" asp-controller="Meeting" asp-action="Index">Meeting</a></li>
                     }
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Member"))
+                    {
+                        <li><a asp-area="" asp-controller="Account" asp-action="ListMemberforChurchies">Members</a></li>
+                        <li><a asp-area="" asp-controller="Meeting" asp-action="Index">Meeting</a></li>
+                    }
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

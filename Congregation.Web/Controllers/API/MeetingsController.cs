@@ -73,7 +73,7 @@ namespace Congregation.Web.Controllers.API
                     Date = request.Date
                 };
 
-                foreach (User membersChurch in church.Users)/// la meti dentro del if para probar
+                foreach (User membersChurch in church.Users)
                 {
                     Assistance assistance = meeting.Assistances.FirstOrDefault(m => m.User.Id == membersChurch.Id);
                     if (assistance == null)
